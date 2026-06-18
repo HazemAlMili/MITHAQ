@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mithaq Typography Specimen</title>
+  <link rel="stylesheet" href="./mithaq-typography-tokens.css">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--mithaq-void);
+      color: var(--mithaq-parchment);
+      font-family: var(--font-body-en);
+    }
+    .page {
+      min-height: 100vh;
+      padding: 56px;
+      border-bottom: 1px solid rgba(242, 232, 208, 0.14);
+      break-after: page;
+      background:
+        radial-gradient(circle at 78% 10%, rgba(196,145,58,0.10), transparent 32%),
+        linear-gradient(135deg, var(--mithaq-void), var(--mithaq-ink));
+    }
+    .cover {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 28px;
+    }
+    .kicker {
+      font-family: var(--font-label);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      color: var(--mithaq-seal-gold);
+      text-transform: uppercase;
+    }
+    h1, h2, h3, p { margin: 0; }
+    h1 {
+      font-family: var(--font-display-en);
+      font-size: 82px;
+      line-height: 1.02;
+      font-weight: 700;
+      max-width: 880px;
+    }
+    h2 {
+      font-family: var(--font-display-en);
+      font-size: 48px;
+      line-height: 1.1;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    h3 {
+      font-family: var(--font-body-en);
+      font-size: 18px;
+      color: var(--mithaq-gold-light);
+      margin-bottom: 10px;
+    }
+    .body {
+      color: var(--mithaq-parchment-dim);
+      font-size: 18px;
+      line-height: 1.7;
+      max-width: 780px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .card {
+      padding: 22px;
+      border: 1px solid rgba(242, 232, 208, 0.13);
+      background: rgba(14, 12, 26, 0.72);
+      min-height: 132px;
+    }
+    .sample {
+      color: var(--mithaq-parchment);
+      overflow-wrap: anywhere;
+    }
+    .muted { color: var(--mithaq-parchment-dim); }
+    .gold { color: var(--mithaq-seal-gold); }
+    .row {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 18px;
+      align-items: baseline;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(242, 232, 208, 0.1);
+    }
+    .meta {
+      font-family: var(--font-label);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--mithaq-seal-gold);
+      text-transform: uppercase;
+    }
+    .ar {
+      direction: rtl;
+      text-align: right;
+      font-family: var(--font-body-ar);
+    }
+    .ar-display {
+      direction: rtl;
+      text-align: right;
+      font-family: var(--font-display-ar-accent);
+    }
+    .ar-safe {
+      direction: rtl;
+      text-align: right;
+      font-family: var(--font-body-ar);
+      font-weight: 700;
+    }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .btn {
+      min-height: 44px;
+      padding: 12px 18px;
+      border: 1px solid var(--mithaq-seal-gold);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      color: var(--mithaq-parchment);
+      text-decoration: none;
+      font-size: 16px;
+    }
+    .btn.fill {
+      background: var(--mithaq-seal-gold);
+      color: var(--mithaq-void);
+    }
+    .mini-ui {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .mobile-box {
+      width: 320px;
+      border: 1px solid rgba(196, 145, 58, 0.45);
+      padding: 18px;
+      background: var(--mithaq-ink);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    th, td {
+      border-bottom: 1px solid rgba(242, 232, 208, 0.12);
+      padding: 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { color: var(--mithaq-gold-light); }
+    @media print {
+      .page { min-height: auto; height: 297mm; padding: 18mm; }
+    }
+  </style>
+</head>
+<body>
+  <section class="page cover">
+    <div class="kicker">P2.03 / Typography Specimen / PASS WITH CONDITIONS</div>
+    <h1>Mithaq Typography Specimen</h1>
+    <p class="body">Testing Cormorant Garamond, DM Sans, JetBrains Mono, Tajawal, and Lemonada for a premium bilingual 3D legal academy experience.</p>
+    <div class="cta-row">
+      <span class="btn">Register Interest</span>
+      <span class="btn fill">Filled Gold Uses Near-Black</span>
+      <span class="btn ar">سجّل اهتمامك</span>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">English Display / Cormorant Garamond</div>
+    <h2>Display Scale</h2>
+    <div class="row"><div class="meta">88px / 700</div><div class="sample" style="font-family:var(--font-display-en);font-size:88px;line-height:1.02;font-weight:700;">Practical Legal Training</div></div>
+    <div class="row"><div class="meta">72px / 600</div><div class="sample" style="font-family:var(--font-display-en);font-size:72px;line-height:1.06;font-weight:600;">From Legal Study to Professional Readiness.</div></div>
+    <div class="row"><div class="meta">56px / 600</div><div class="sample" style="font-family:var(--font-display-en);font-size:56px;line-height:1.1;font-weight:600;">The Mithaq Method</div></div>
+    <div class="row"><div class="meta">40px / 600</div><div class="sample gold" style="font-family:var(--font-display-en);font-size:40px;line-height:1.2;font-weight:600;">Legal Research & Opinion</div></div>
+    <div class="row"><div class="meta">32px / italic</div><div class="sample" style="font-family:var(--font-display-en);font-size:32px;line-height:1.25;font-style:italic;font-weight:400;">A restrained accent, not paragraph copy.</div></div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">Arabic Display / Lemonada vs Tajawal</div>
+    <h2>Arabic Display Comparison</h2>
+    <div class="grid">
+      <div class="card"><h3>Lemonada 56px</h3><div class="sample ar-display" style="font-size:56px;line-height:1.28;font-weight:700;">ميثاق</div><p class="body ar">Expressive, but decorative risk for legal authority.</p></div>
+      <div class="card"><h3>Tajawal 56px</h3><div class="sample ar-safe" style="font-size:56px;line-height:1.24;">ميثاق</div><p class="body ar">Cleaner and more mature for default Arabic display.</p></div>
+      <div class="card"><h3>Lemonada 40px</h3><div class="sample ar-display" style="font-size:40px;line-height:1.35;font-weight:600;">منهج ميثاق</div></div>
+      <div class="card"><h3>Tajawal 40px</h3><div class="sample ar-safe" style="font-size:40px;line-height:1.3;">منهج ميثاق</div></div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">Body / UI Reading</div>
+    <h2>English and Arabic Body Tests</h2>
+    <div class="grid">
+      <div class="card"><h3>DM Sans 20 / 1.7</h3><p style="font-size:20px;line-height:1.7;color:var(--mithaq-parchment-dim);">Mithaq prepares law graduates and early-career lawyers for real practice.</p></div>
+      <div class="card"><h3 class="ar">Tajawal 20 / 1.8</h3><p class="ar" style="font-size:20px;line-height:1.8;color:var(--mithaq-parchment-dim);">تساعد ميثاق خريجي الحقوق والمحامين في بداية الطريق على الاستعداد للممارسة العملية.</p></div>
+      <div class="card"><h3>DM Sans 16 / 1.65</h3><p style="font-size:16px;line-height:1.65;color:var(--mithaq-parchment-dim);">Who is Mithaq for? A concise FAQ answer remains readable on dark surfaces.</p></div>
+      <div class="card"><h3 class="ar">Tajawal 16 / 1.75</h3><p class="ar" style="font-size:16px;line-height:1.75;color:var(--mithaq-parchment-dim);">لمن صُممت ميثاق؟ إجابة قصيرة تبقى واضحة ومريحة على الخلفيات الداكنة.</p></div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">Labels / Scene Numbers</div>
+    <h2>JetBrains Mono Tests</h2>
+    <div class="row"><div class="meta">11px / 0.08em</div><div class="sample" style="font-family:var(--font-label);font-size:11px;letter-spacing:.08em;color:var(--mithaq-seal-gold);">01 / 02 / 03</div></div>
+    <div class="row"><div class="meta">11px / 0.12em</div><div class="sample" style="font-family:var(--font-label);font-size:11px;letter-spacing:.12em;color:var(--mithaq-seal-gold);">WORKSHOP / METHOD / MENTORS / FAQ</div></div>
+    <div class="row"><div class="meta">12px / 0.15em</div><div class="sample" style="font-family:var(--font-label);font-size:12px;letter-spacing:.15em;color:var(--mithaq-seal-gold);">3-DAY INTENSIVE / BEGINNER / PRACTICAL</div></div>
+    <p class="body" style="margin-top:24px;">Recommendation: precise labels only. Do not let mono become a technical aesthetic.</p>
+  </section>
+
+  <section class="page">
+    <div class="kicker">Bilingual Pairing / CTA / UI Blocks</div>
+    <h2>Bilingual and Conversion Tests</h2>
+    <div class="grid">
+      <div class="card"><h3>Option B - Arabic Primary</h3><div class="sample ar-safe" style="font-size:36px;line-height:1.28;">ميثاق — من الدراسة إلى الاحتراف</div><p class="muted" style="font-size:16px;line-height:1.65;">From Legal Study to Professional Readiness.</p></div>
+      <div class="card"><h3>Option D - Localized Layouts</h3><p class="body">Recommended. Separate Arabic and English page compositions protect hierarchy and wrapping.</p></div>
+      <div class="card"><h3>CTA States</h3><div class="cta-row"><span class="btn">Ask About This Workshop</span><span class="btn fill">Register Interest</span><span class="btn ar">اسأل عن هذه الورشة</span></div></div>
+      <div class="card"><h3>Workshop Card Specimen</h3><div class="meta">BEGINNER / PRACTICAL</div><div class="sample" style="font-family:var(--font-display-en);font-size:32px;line-height:1.2;font-weight:600;">Legal Writing & Memo Drafting</div><p class="muted" style="font-size:16px;line-height:1.65;">Specimen block only. Not final UI.</p></div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">Mobile Wrapping</div>
+    <h2>320px Width Samples</h2>
+    <div class="grid">
+      <div class="mobile-box"><div class="sample" style="font-family:var(--font-display-en);font-size:44px;line-height:1.1;font-weight:700;">Practical Legal Training for the Lawyers the Market Actually Needs.</div><div class="cta-row"><span class="btn">Register Interest</span></div></div>
+      <div class="mobile-box"><div class="sample ar-safe" style="font-size:40px;line-height:1.25;">تدريب قانوني عملي للمحامين الذين يحتاجهم السوق</div><div class="cta-row"><span class="btn ar">سجّل اهتمامك</span></div></div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">Font Payload / Decisions</div>
+    <h2>Performance and Final Recommendation</h2>
+    <table>
+      <thead><tr><th>Font</th><th>Needed</th><th>Measured WOFF2</th><th>Decision</th></tr></thead>
+      <tbody>
+        <tr><td>Cormorant Garamond</td><td>Normal 600-700 + Italic 400 Latin</td><td>59.9 KB</td><td>Keep display only; italic optional.</td></tr>
+        <tr><td>DM Sans</td><td>Latin 400/500/600, 300 optional</td><td>36.1 KB</td><td>Keep body/UI; remove 300 if unused.</td></tr>
+        <tr><td>JetBrains Mono</td><td>Latin 400/500</td><td>30.7 KB</td><td>Keep only if labels need mono.</td></tr>
+        <tr><td>Tajawal</td><td>Arabic 400/500/700</td><td>26.2 KB</td><td>Keep as Arabic body/UI/default display.</td></tr>
+        <tr><td>Lemonada</td><td>Arabic 400/600/700</td><td>26.0 KB</td><td>Accent-only; remove if not approved.</td></tr>
+      </tbody>
+    </table>
+    <p class="body" style="margin-top:22px;">Final status: PASS WITH CONDITIONS. The system is viable, but Lemonada needs review and final production subsets must be re-measured after approvals.</p>
+  </section>
+</body>
+</html>

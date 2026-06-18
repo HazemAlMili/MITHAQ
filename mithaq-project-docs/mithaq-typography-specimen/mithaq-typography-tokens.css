@@ -1,0 +1,154 @@
+/*
+  Mithaq Typography Specimen Tokens
+  Ticket: P2.03 - Typography Specimen
+  Status: PASS WITH CONDITIONS
+
+  Planning/specimen token draft only.
+  Not production frontend implementation.
+*/
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("./fonts/cormorant-garamond-normal-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 600 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("./fonts/cormorant-garamond-italic-latin.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("./fonts/dm-sans-normal-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 300 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("./fonts/jetbrains-mono-normal-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Tajawal";
+  src: url("./fonts/tajawal-400-arabic.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Tajawal";
+  src: url("./fonts/tajawal-500-arabic.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Tajawal";
+  src: url("./fonts/tajawal-700-arabic.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lemonada";
+  src: url("./fonts/lemonada-normal-arabic.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+:root {
+  --mithaq-void: #08070f;
+  --mithaq-ink: #0e0c1a;
+  --mithaq-chamber: #161422;
+  --mithaq-wood: #1c1510;
+  --mithaq-seal-gold: #c4913a;
+  --mithaq-gold-light: #e8c97a;
+  --mithaq-gold-dim: #8b6420;
+  --mithaq-parchment: #f2e8d0;
+  --mithaq-parchment-dim: #bfb09a;
+  --mithaq-red-authority: #8b1a1a;
+
+  --font-display-en: "Cormorant Garamond", Georgia, serif;
+  --font-body-en: "DM Sans", Arial, sans-serif;
+  --font-label: "JetBrains Mono", Consolas, monospace;
+  --font-body-ar: "Tajawal", Arial, sans-serif;
+  --font-display-ar-accent: "Lemonada", "Tajawal", Arial, sans-serif;
+
+  --type-display-xl: 88px;
+  --type-display-l: 72px;
+  --type-display-m: 56px;
+  --type-heading-l: 40px;
+  --type-heading-m: 32px;
+  --type-heading-s: 24px;
+  --type-body-l: 20px;
+  --type-body-m: 18px;
+  --type-body-s: 16px;
+  --type-label: 12px;
+  --type-micro: 11px;
+
+  --lh-display-tight: 1.02;
+  --lh-display: 1.1;
+  --lh-heading: 1.25;
+  --lh-body-en: 1.7;
+  --lh-body-ar: 1.8;
+  --lh-label: 1.35;
+}
+
+.type-en-display {
+  font-family: var(--font-display-en);
+  color: var(--mithaq-parchment);
+}
+
+.type-en-body {
+  font-family: var(--font-body-en);
+  color: var(--mithaq-parchment-dim);
+}
+
+.type-label {
+  font-family: var(--font-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mithaq-seal-gold);
+}
+
+.type-ar-body {
+  font-family: var(--font-body-ar);
+  color: var(--mithaq-parchment-dim);
+  direction: rtl;
+}
+
+.type-ar-display-accent {
+  font-family: var(--font-display-ar-accent);
+  color: var(--mithaq-parchment);
+  direction: rtl;
+}
+
+.type-ar-display-safe {
+  font-family: var(--font-body-ar);
+  font-weight: 700;
+  color: var(--mithaq-parchment);
+  direction: rtl;
+}
+
+/* Guardrails:
+  - Do not use Cormorant Garamond for body text.
+  - Do not use Lemonada for Arabic paragraphs or dense UI.
+  - Do not use JetBrains Mono beyond labels, numbers, and metadata.
+  - Do not use white text on filled gold CTAs.
+  - Keep Arabic line-height more generous than English.
+*/

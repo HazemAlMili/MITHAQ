@@ -1,0 +1,92 @@
+/*
+  Mithaq Color Token System
+  Ticket: P2.02 - Color Token System
+  Status: PASS WITH CONDITIONS
+
+  Planning/design-system token draft only.
+  Not final frontend production code.
+*/
+
+:root {
+  /* Core candidates */
+  --mithaq-void: #08070f;
+  --mithaq-ink: #0e0c1a;
+  --mithaq-chamber: #161422;
+  --mithaq-wood: #1c1510;
+  --mithaq-seal-gold: #c4913a;
+  --mithaq-gold-light: #e8c97a;
+  --mithaq-gold-dim: #8b6420;
+  --mithaq-parchment: #f2e8d0;
+  --mithaq-parchment-dim: #bfb09a;
+  --mithaq-trust-navy: #1a2540;
+  --mithaq-red-authority: #8b1a1a;
+
+  /* Background semantics */
+  --color-bg-page: var(--mithaq-void);
+  --color-bg-surface: var(--mithaq-ink);
+  --color-bg-surface-strong: var(--mithaq-chamber);
+  --color-bg-material-wood: var(--mithaq-wood);
+  --color-bg-trust: var(--mithaq-trust-navy);
+
+  /* Text semantics */
+  --color-text-primary: var(--mithaq-parchment);
+  --color-text-secondary: var(--mithaq-parchment-dim);
+  --color-text-on-accent: var(--mithaq-void);
+
+  /* Accent semantics */
+  --color-accent-primary: var(--mithaq-seal-gold);
+  --color-accent-hover: var(--mithaq-gold-light);
+  --color-accent-muted: var(--mithaq-gold-dim);
+
+  /* Border and focus semantics */
+  --color-border-subtle: rgba(242, 232, 208, 0.14);
+  --color-border-strong: rgba(242, 232, 208, 0.28);
+  --color-border-accent: rgba(196, 145, 58, 0.72);
+  --color-focus-ring: var(--mithaq-gold-light);
+
+  /* Status semantics */
+  --color-status-error-bg: var(--mithaq-red-authority);
+  --color-status-error-text: var(--mithaq-parchment);
+
+  /* Component aliases */
+  --cta-primary-bg: transparent;
+  --cta-primary-text: var(--mithaq-parchment);
+  --cta-primary-border: var(--mithaq-seal-gold);
+  --cta-primary-hover-bg: rgba(196, 145, 58, 0.12);
+  --cta-primary-hover-border: var(--mithaq-gold-light);
+
+  --cta-filled-bg: var(--mithaq-seal-gold);
+  --cta-filled-text: var(--mithaq-void);
+  --cta-filled-hover-bg: var(--mithaq-gold-light);
+  --cta-filled-hover-text: var(--mithaq-void);
+
+  --form-bg: var(--mithaq-ink);
+  --form-label: var(--mithaq-parchment-dim);
+  --form-input-bg: rgba(8, 7, 15, 0.72);
+  --form-input-text: var(--mithaq-parchment);
+  --form-input-border: rgba(242, 232, 208, 0.2);
+  --form-input-focus-border: var(--mithaq-gold-light);
+
+  --card-bg: var(--mithaq-ink);
+  --card-bg-strong: var(--mithaq-chamber);
+  --card-text: var(--mithaq-parchment);
+  --card-text-muted: var(--mithaq-parchment-dim);
+  --card-border: rgba(242, 232, 208, 0.12);
+  --card-border-hover: rgba(196, 145, 58, 0.56);
+
+  --seal-material-base: var(--mithaq-seal-gold);
+  --seal-material-highlight: var(--mithaq-gold-light);
+  --seal-material-shadow: var(--mithaq-gold-dim);
+  --desk-material-base: var(--mithaq-wood);
+
+  color-scheme: dark;
+}
+
+/*
+  Restricted rules:
+  - Do not use --mithaq-gold-dim for normal body text.
+  - Do not use --mithaq-red-authority as text on dark backgrounds.
+  - Do not use white text on --mithaq-seal-gold.
+  - Use --mithaq-void or equivalent near-black for filled gold CTA text.
+*/
+
