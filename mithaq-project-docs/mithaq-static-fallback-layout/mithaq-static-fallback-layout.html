@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mithaq Static Fallback Layout - P4.05</title>
+  <style>
+    :root {
+      --void: #08070f;
+      --ink: #0e0c1a;
+      --chamber: #161422;
+      --wood: #1c1510;
+      --panel: #14111f;
+      --parchment: #f2e8d0;
+      --ivory: #fff7e6;
+      --muted: #bfb09a;
+      --subtle: #8f806e;
+      --gold: #c4913a;
+      --gold-light: #e8c97a;
+      --brass: #a7782f;
+      --line: rgba(242, 232, 208, 0.15);
+      --shadow: rgba(0, 0, 0, 0.56);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #050407;
+      color: var(--parchment);
+      font-family: "DM Sans", Arial, sans-serif;
+    }
+
+    .board {
+      min-width: 1520px;
+      padding: 40px;
+    }
+
+    .cover {
+      width: 1180px;
+      margin: 0 0 38px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, rgba(20, 17, 31, 0.92), rgba(8, 7, 15, 0.96));
+      box-shadow: 0 26px 70px var(--shadow);
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1, h2, .display {
+      font-family: Georgia, "Times New Roman", serif;
+      letter-spacing: 0;
+    }
+
+    h1 { font-size: 44px; font-weight: 600; margin-bottom: 10px; }
+    h2 { margin: 44px 0 20px; font-size: 30px; font-weight: 600; }
+
+    .cover p {
+      max-width: 940px;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    .status {
+      display: inline-flex;
+      padding: 8px 11px;
+      border: 1px solid rgba(196, 145, 58, 0.45);
+      color: var(--gold-light);
+      font: 500 11px/1.2 "JetBrains Mono", Consolas, monospace;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .frames {
+      display: grid;
+      gap: 38px;
+    }
+
+    .fallback-frame {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(242, 232, 208, 0.22);
+      background:
+        radial-gradient(circle at 70% 10%, rgba(196,145,58,0.11), transparent 24%),
+        linear-gradient(180deg, var(--ink), var(--void));
+      box-shadow: 0 32px 82px var(--shadow);
+      isolation: isolate;
+    }
+
+    .desktop {
+      width: 1440px;
+      padding: 0 72px 72px;
+    }
+
+    .mobile {
+      width: 390px;
+      padding: 0 22px 34px;
+    }
+
+    .fallback-frame::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background:
+        linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
+      background-size: 88px 88px;
+      opacity: 0.32;
+      pointer-events: none;
+    }
+
+    .frame-label {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      margin: 0 -72px;
+      padding: 14px 72px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(8, 7, 15, 0.94);
+      color: var(--gold-light);
+      font: 500 11px/1.35 "JetBrains Mono", Consolas, monospace;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .mobile .frame-label {
+      margin: 0 -22px;
+      padding: 12px 22px;
+      font-size: 10px;
+    }
+
+    .section {
+      position: relative;
+      z-index: 2;
+      min-height: 620px;
+      padding: 86px 0;
+      border-bottom: 1px solid rgba(242, 232, 208, 0.1);
+    }
+
+    .desktop .section {
+      display: grid;
+      grid-template-columns: minmax(430px, 0.9fr) minmax(560px, 1.1fr);
+      gap: 58px;
+      align-items: center;
+    }
+
+    .desktop .section.reverse {
+      grid-template-columns: minmax(600px, 1.15fr) minmax(410px, 0.85fr);
+    }
+
+    .mobile .section {
+      min-height: auto;
+      padding: 48px 0;
+      display: grid;
+      gap: 24px;
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      position: relative;
+      z-index: 3;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .mobile .nav {
+      min-height: 68px;
+      font-size: 12px;
+    }
+
+    .brand {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 21px;
+      color: var(--ivory);
+      letter-spacing: 0.06em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .mobile .nav-links { gap: 12px; }
+    .mobile .nav-links span:nth-child(n+3) { display: none; }
+
+    .scene-kicker {
+      color: var(--gold-light);
+      font: 500 12px/1.35 "JetBrains Mono", Consolas, monospace;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .headline {
+      color: var(--ivory);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 62px;
+      font-weight: 600;
+      line-height: 1.02;
+      margin-bottom: 22px;
+    }
+
+    .mobile .headline {
+      font-size: 38px;
+      line-height: 1.1;
+    }
+
+    .copy {
+      max-width: 580px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.72;
+      margin-bottom: 28px;
+    }
+
+    .mobile .copy {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .mobile .cta-row {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .btn {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(196,145,58,0.86);
+      color: var(--gold-light);
+      background: rgba(8,7,15,0.35);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .btn.filled {
+      background: var(--gold);
+      color: var(--void);
+    }
+
+    .poster {
+      position: relative;
+      min-height: 420px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at 52% 42%, rgba(196,145,58,0.2), transparent 26%),
+        linear-gradient(145deg, var(--wood), var(--panel));
+    }
+
+    .mobile .poster {
+      min-height: 230px;
+      order: -1;
+    }
+
+    .poster-label {
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      z-index: 3;
+      color: var(--gold-light);
+      font: 500 10px/1.2 "JetBrains Mono", Consolas, monospace;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .seal {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 220px;
+      aspect-ratio: 1;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      border: 3px double rgba(196,145,58,0.88);
+      box-shadow:
+        inset 0 0 0 22px rgba(196,145,58,0.06),
+        0 18px 48px rgba(0,0,0,0.38);
+      background:
+        radial-gradient(circle, rgba(232,201,122,0.12), transparent 42%),
+        radial-gradient(circle, rgba(196,145,58,0.10), rgba(28,21,16,0.72));
+    }
+
+    .seal::before {
+      content: "MITHAQ";
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: var(--gold-light);
+      font: 600 14px/1 "JetBrains Mono", Consolas, monospace;
+      letter-spacing: 0.16em;
+    }
+
+    .mobile .seal { width: 132px; }
+
+    .desk {
+      position: absolute;
+      left: -8%;
+      right: -8%;
+      bottom: -8%;
+      height: 38%;
+      border-radius: 50% 50% 8px 8px / 18% 18% 8px 8px;
+      background:
+        linear-gradient(90deg, transparent, rgba(232,201,122,0.08), transparent),
+        repeating-linear-gradient(96deg, rgba(242,232,208,0.028) 0 2px, transparent 2px 22px),
+        linear-gradient(180deg, #352116, #120d09);
+    }
+
+    .doc-collage {
+      position: absolute;
+      inset: 78px 76px 70px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      transform: rotate(-3deg);
+    }
+
+    .doc {
+      min-height: 150px;
+      border: 1px solid rgba(242,232,208,0.18);
+      border-radius: 6px;
+      background: linear-gradient(160deg, rgba(242,232,208,0.18), rgba(242,232,208,0.055));
+    }
+
+    .mobile .doc-collage {
+      inset: 55px 34px 35px;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .cards,
+    .pillars,
+    .workshops,
+    .mentors,
+    .trust,
+    .faq {
+      display: grid;
+      gap: 16px;
+    }
+
+    .desktop .pillars { grid-template-columns: repeat(5, 1fr); }
+    .desktop .workshops { grid-template-columns: repeat(3, 1fr); }
+    .desktop .mentors { grid-template-columns: repeat(4, 1fr); }
+    .desktop .trust { grid-template-columns: repeat(3, 1fr); }
+    .desktop .faq { grid-template-columns: 1fr; }
+    .mobile .pillars,
+    .mobile .workshops,
+    .mobile .mentors,
+    .mobile .trust { grid-template-columns: 1fr; }
+
+    .card,
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(20, 17, 31, 0.74);
+      padding: 20px;
+    }
+
+    .card h3,
+    .faq-item h3 {
+      margin-bottom: 10px;
+      color: var(--ivory);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 23px;
+      line-height: 1.18;
+    }
+
+    .card p,
+    .faq-item p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.62;
+      font-size: 14px;
+    }
+
+    .portrait-slot {
+      width: 72px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      margin-bottom: 14px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, rgba(242,232,208,0.2), rgba(196,145,58,0.12));
+    }
+
+    .faq-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: start;
+      gap: 16px;
+    }
+
+    .faq-item span {
+      color: var(--gold-light);
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .pending {
+      margin-top: 14px;
+      color: var(--gold-light);
+      font: 500 10px/1.45 "JetBrains Mono", Consolas, monospace;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .rtl-sample {
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      direction: rtl;
+      text-align: right;
+      color: var(--parchment);
+      font-family: Tahoma, Arial, sans-serif;
+      line-height: 1.8;
+    }
+
+    .footer {
+      position: relative;
+      z-index: 2;
+      padding: 36px 0 0;
+      color: var(--subtle);
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      border-top: 1px solid var(--line);
+    }
+
+    .mobile .footer {
+      display: grid;
+    }
+  </style>
+</head>
+<body>
+  <main class="board">
+    <section class="cover">
+      <h1>Mithaq Static Fallback Layout</h1>
+      <p>P4.05 visual fallback comp. This is a full editorial, non-WebGL version of the 10-scene Mithaq journey for reduced-motion, failed WebGL, low-end devices, and accessible fallback contexts.</p>
+      <p>This is a design artifact only. It does not implement WebGL detection, reduced-motion logic, React components, production CSS, final static assets, final content, or final Arabic localization.</p>
+      <div class="status">PASS WITH CONDITIONS - Figma build pending</div>
+    </section>
+
+    <h2>Desktop Full Static Fallback Layout / 1440px</h2>
+    <section class="frames">
+      <article class="fallback-frame desktop">
+        <div class="frame-label">Mithaq - P4.05 Static Fallback Layout / Desktop / 1440</div>
+        <nav class="nav">
+          <div class="brand">MITHAQ</div>
+          <div class="nav-links"><span>Method</span><span>Workshops</span><span>Mentors</span><span>FAQ</span><span>AR</span></div>
+        </nav>
+
+        <section class="section" id="desktop-scene-01">
+          <div>
+            <div class="scene-kicker">Scene 01 / Static Seal Opening</div>
+            <h2 class="headline">The Covenant Seal, without motion.</h2>
+            <p class="copy">A premium static seal and desk poster replaces the animated opening while preserving the same serious legal atmosphere and immediate conversion path.</p>
+            <div class="cta-row"><a class="btn filled">Ask on WhatsApp</a><a class="btn">Register Interest</a></div>
+            <div class="pending">WHATSAPP_NUMBER_PENDING / Static hero poster pending final render</div>
+          </div>
+          <div class="poster"><div class="poster-label">Static Seal / Desk Hero Poster</div><div class="desk"></div><div class="seal"></div></div>
+        </section>
+
+        <section class="section reverse" id="desktop-scene-02">
+          <div class="poster"><div class="poster-label">Seal mark as editorial anchor</div><div class="desk"></div><div class="seal"></div></div>
+          <div>
+            <div class="scene-kicker">Scene 02 / Hero Reveal</div>
+            <h2 class="headline">From legal study to professional readiness.</h2>
+            <p class="copy">The fallback clarifies Mithaq's purpose in normal editorial reading flow: practical legal training for law students, graduates, and early-career professionals.</p>
+            <div class="cta-row"><a class="btn filled">Ask on WhatsApp</a><a class="btn">View Workshops</a></div>
+          </div>
+        </section>
+
+        <section class="section" id="desktop-scene-03">
+          <div>
+            <div class="scene-kicker">Scene 03 / The Gap</div>
+            <h2 class="headline">Knowledge alone is not practice readiness.</h2>
+            <p class="copy">A static document collage explains the readiness gap without floating 3D fragments, fear tactics, or criticism of university education.</p>
+            <div class="cta-row"><a class="btn">Ask a Question</a></div>
+          </div>
+          <div class="poster"><div class="poster-label">Fragmented Documents Poster</div><div class="doc-collage"><div class="doc"></div><div class="doc"></div><div class="doc"></div></div></div>
+        </section>
+
+        <section class="section reverse" id="desktop-scene-04">
+          <div class="poster"><div class="poster-label">Ordered Desk / Method Poster</div><div class="desk"></div><div class="doc-collage"><div class="doc"></div><div class="doc"></div><div class="doc"></div></div></div>
+          <div>
+            <div class="scene-kicker">Scene 04 / Mithaq Method</div>
+            <h2 class="headline">A structured method for legal craft.</h2>
+            <p class="copy">Method content appears as editorial principles and ordered files, not a dashboard, module map, or corporate process diagram.</p>
+            <div class="cards"><div class="card"><h3>Read the law</h3><p>Research and analysis discipline.</p></div><div class="card"><h3>Write with judgment</h3><p>Memo and drafting structure.</p></div><div class="card"><h3>Prepare for practice</h3><p>Professional legal habits.</p></div></div>
+          </div>
+        </section>
+
+        <section class="section" id="desktop-scene-05">
+          <div>
+            <div class="scene-kicker">Scene 05 / Training Pillars</div>
+            <h2 class="headline">Five pillars, one professional standard.</h2>
+            <p class="copy">Pillar cards use a dossier/editorial treatment and keep every detail visible without hover-only behavior.</p>
+            <div class="cta-row"><a class="btn filled">View Workshops</a><a class="btn">Register Interest</a></div>
+          </div>
+          <div class="pillars"><div class="card"><h3>Legal Research</h3><p>Practical source finding and analysis.</p></div><div class="card"><h3>Legal Writing</h3><p>Drafting and memo clarity.</p></div><div class="card"><h3>Professional Readiness</h3><p>Communication and judgment.</p></div><div class="card"><h3>Career Infrastructure</h3><p>Portfolio and positioning basics.</p></div><div class="card"><h3>Practical Legal Mindset</h3><p>Thinking like a practitioner.</p></div></div>
+        </section>
+
+        <section class="section reverse" id="desktop-scene-06">
+          <div class="workshops"><div class="card"><h3>Workshop title pending</h3><p>Focused practical training path. No fake dates, pricing, duration, capacity, or certificate claims.</p><div class="pending">Pending content - internal only</div><div class="cta-row"><a class="btn filled">Ask About This Workshop</a><a class="btn">View Details</a></div></div><div class="card"><h3>Workshop title pending</h3><p>Workshop dossier imagery pending final assets.</p><div class="cta-row"><a class="btn filled">Ask About This Workshop</a><a class="btn">View Details</a></div></div><div class="card"><h3>Workshop title pending</h3><p>Mentor, format, duration, price, and certificate policy pending.</p><div class="cta-row"><a class="btn filled">Ask About This Workshop</a><a class="btn">View Details</a></div></div></div>
+          <div>
+            <div class="scene-kicker">Scene 06 / Workshops Preview</div>
+            <h2 class="headline">Workshop dossiers, not a course catalog.</h2>
+            <p class="copy">The fallback represents workshops through clear DOM cards with inquiry CTAs, preserving conversion without 3D cards or LMS behavior.</p>
+          </div>
+        </section>
+
+        <section class="section" id="desktop-scene-07">
+          <div>
+            <div class="scene-kicker">Scene 07 / Hall of Mentors</div>
+            <h2 class="headline">Credibility without invention.</h2>
+            <p class="copy">Mentor cards reserve premium space for verified profiles only. Placeholders avoid fake names, photos, credentials, or years of experience.</p>
+            <div class="cta-row"><a class="btn">Ask Before Registering</a></div>
+          </div>
+          <div class="mentors"><div class="card"><div class="portrait-slot"></div><h3>Mentor profile pending</h3><p>Name, title, photo, and bio pending approval.</p></div><div class="card"><div class="portrait-slot"></div><h3>Mentor profile pending</h3><p>Verified profile required before public use.</p></div><div class="card"><div class="portrait-slot"></div><h3>Mentor profile pending</h3><p>No stock-person credibility claims.</p></div><div class="card"><div class="portrait-slot"></div><h3>Mentor profile pending</h3><p>Alt text planned when portraits arrive.</p></div></div>
+        </section>
+
+        <section class="section reverse" id="desktop-scene-08">
+          <div class="trust"><div class="card"><h3>Proof point pending verification</h3><p>Only approved evidence appears publicly.</p></div><div class="card"><h3>Trust signal pending</h3><p>No fake testimonials, partner logos, or stats.</p></div><div class="card"><h3>Legal/compliance guidance pending</h3><p>Claims require review before launch.</p></div></div>
+          <div>
+            <div class="scene-kicker">Scene 08 / Trust & Authority</div>
+            <h2 class="headline">Trust is structured, not decorated.</h2>
+            <p class="copy">The fallback preserves space for credibility without manufacturing proof. If proof is missing, the page remains honest and editorial.</p>
+            <div class="cta-row"><a class="btn">Ask on WhatsApp</a></div>
+          </div>
+        </section>
+
+        <section class="section" id="desktop-scene-09">
+          <div>
+            <div class="scene-kicker">Scene 09 / FAQ</div>
+            <h2 class="headline">Questions answered plainly.</h2>
+            <p class="copy">FAQ is typography-led, semantic later, and accessible as ordinary editorial content with no visual distraction.</p>
+            <div class="cta-row"><a class="btn filled">Ask via WhatsApp</a><a class="btn">Register Interest</a></div>
+          </div>
+          <div class="faq"><div class="faq-item"><div><h3>Who is Mithaq for?</h3><p>Audience answer pending final copy approval.</p></div><span>+</span></div><div class="faq-item"><div><h3>How is it different from university study?</h3><p>Answer pending; avoid insulting legal education.</p></div><span>+</span></div><div class="faq-item"><div><h3>What is the workshop format?</h3><p>Format pending confirmation.</p></div><span>+</span></div><div class="faq-item"><div><h3>Is there a certificate or price?</h3><p>Certificate and pricing policies pending.</p></div><span>+</span></div></div>
+        </section>
+
+        <section class="section reverse" id="desktop-scene-10">
+          <div class="poster"><div class="poster-label">Final Seal CTA Poster</div><div class="desk"></div><div class="seal"></div></div>
+          <div>
+            <div class="scene-kicker">Scene 10 / Closing Covenant</div>
+            <h2 class="headline">Ask clearly. Register calmly.</h2>
+            <p class="copy">The closing fallback returns to the Seal motif and gives a low-pressure conversion path without countdowns, limited seats, or fake urgency.</p>
+            <div class="cta-row"><a class="btn filled">Ask on WhatsApp</a><a class="btn">Register Interest</a></div>
+            <div class="pending">WHATSAPP_NUMBER_PENDING / FORM_DESTINATION_PENDING</div>
+          </div>
+        </section>
+
+        <footer class="footer"><span>Mithaq static fallback editorial layout</span><span>Privacy/legal copy pending</span></footer>
+      </article>
+
+      <h2>Mobile Full Static Fallback Layout / 390px</h2>
+      <article class="fallback-frame mobile">
+        <div class="frame-label">Mithaq - P4.05 Static Fallback Layout / Mobile / 390</div>
+        <nav class="nav">
+          <div class="brand">MITHAQ</div>
+          <div class="nav-links"><span>Menu</span><span>AR</span><span>WhatsApp</span></div>
+        </nav>
+
+        <section class="section" id="mobile-scene-01">
+          <div class="poster"><div class="poster-label">Static Seal Hero</div><div class="desk"></div><div class="seal"></div></div>
+          <div><div class="scene-kicker">Scene 01</div><h2 class="headline">The Covenant Seal</h2><p class="copy">Static opening state with CTA visible early.</p><div class="cta-row"><a class="btn filled">Ask on WhatsApp</a><a class="btn">Register Interest</a></div><div class="pending">WHATSAPP_NUMBER_PENDING</div></div>
+        </section>
+
+        <section class="section" id="mobile-scene-02">
+          <div><div class="scene-kicker">Scene 02</div><h2 class="headline">From legal study to readiness.</h2><p class="copy">Text-first mobile fallback explains Mithaq quickly, without requiring the 3D opening.</p><div class="rtl-sample">ميثاق — من الدراسة إلى الاحتراف</div><div class="cta-row"><a class="btn filled">سجّل اهتمامك</a><a class="btn">View Workshops</a></div></div>
+        </section>
+
+        <section class="section" id="mobile-scene-03">
+          <div class="poster"><div class="poster-label">Document Collage</div><div class="doc-collage"><div class="doc"></div><div class="doc"></div><div class="doc"></div></div></div>
+          <div><div class="scene-kicker">Scene 03</div><h2 class="headline">The readiness gap</h2><p class="copy">Concise explanation first; collage supports the point.</p></div>
+        </section>
+
+        <section class="section" id="mobile-scene-04">
+          <div><div class="scene-kicker">Scene 04</div><h2 class="headline">The Mithaq Method</h2><p class="copy">Method blocks stack as readable editorial content.</p></div>
+          <div class="cards"><div class="card"><h3>Research</h3><p>Planning copy only.</p></div><div class="card"><h3>Writing</h3><p>Planning copy only.</p></div><div class="card"><h3>Readiness</h3><p>Planning copy only.</p></div></div>
+        </section>
+
+        <section class="section" id="mobile-scene-05">
+          <div><div class="scene-kicker">Scene 05</div><h2 class="headline">Five pillars</h2></div>
+          <div class="pillars"><div class="card"><h3>Legal Research</h3><p>Practical analysis.</p></div><div class="card"><h3>Legal Writing</h3><p>Drafting clarity.</p></div><div class="card"><h3>Professional Readiness</h3><p>Practice habits.</p></div><div class="card"><h3>Career Infrastructure</h3><p>Career foundations.</p></div><div class="card"><h3>Practical Legal Mindset</h3><p>Professional judgment.</p></div></div>
+          <div class="cta-row"><a class="btn filled">View Workshops</a><a class="btn">Register Interest</a></div>
+        </section>
+
+        <section class="section" id="mobile-scene-06">
+          <div><div class="scene-kicker">Scene 06</div><h2 class="headline">Workshop dossiers</h2><p class="copy">Stacked cards with visible CTAs. No fake pricing, dates, capacity, or checkout.</p></div>
+          <div class="workshops"><div class="card"><h3>Workshop title pending</h3><p>Details pending approval.</p><div class="cta-row"><a class="btn filled">Ask About This Workshop</a><a class="btn">View Details</a></div></div><div class="card"><h3>Workshop title pending</h3><p>Workshop dossier imagery pending.</p></div></div>
+        </section>
+
+        <section class="section" id="mobile-scene-07">
+          <div><div class="scene-kicker">Scene 07</div><h2 class="headline">Hall of Mentors</h2><p class="copy">Placeholder-safe mentor cards only.</p></div>
+          <div class="mentors"><div class="card"><div class="portrait-slot"></div><h3>Mentor profile pending</h3><p>No fake credentials.</p></div><div class="card"><div class="portrait-slot"></div><h3>Mentor profile pending</h3><p>Verified info required.</p></div></div>
+        </section>
+
+        <section class="section" id="mobile-scene-08">
+          <div><div class="scene-kicker">Scene 08</div><h2 class="headline">Verified trust</h2><p class="copy">Trust blocks are reserved for real proof only.</p></div>
+          <div class="trust"><div class="card"><h3>Proof point pending verification</h3><p>No fake testimonials.</p></div><div class="card"><h3>Trust signal pending</h3><p>No fake stats or logos.</p></div></div>
+        </section>
+
+        <section class="section" id="mobile-scene-09">
+          <div><div class="scene-kicker">Scene 09</div><h2 class="headline">FAQ</h2><div class="rtl-sample">لمن صُممت ميثاق؟</div></div>
+          <div class="faq"><div class="faq-item"><div><h3>Who is Mithaq for?</h3><p>Answer pending final copy.</p></div><span>+</span></div><div class="faq-item"><div><h3>What is the format?</h3><p>Pending confirmation.</p></div><span>+</span></div><div class="faq-item"><div><h3>Can I ask first?</h3><p>WhatsApp path remains primary.</p></div><span>+</span></div></div>
+          <div class="cta-row"><a class="btn filled">Ask via WhatsApp</a><a class="btn">Register Interest</a></div>
+        </section>
+
+        <section class="section" id="mobile-scene-10">
+          <div class="poster"><div class="poster-label">Final Seal CTA</div><div class="desk"></div><div class="seal"></div></div>
+          <div><div class="scene-kicker">Scene 10</div><h2 class="headline">Ask clearly.</h2><p class="copy">Final static CTA keeps conversion direct and calm.</p><div class="rtl-sample">سجّل اهتمامك</div><div class="cta-row"><a class="btn filled">Ask on WhatsApp</a><a class="btn">Register Interest</a></div><div class="pending">WHATSAPP_NUMBER_PENDING</div></div>
+        </section>
+
+        <footer class="footer"><span>Mithaq fallback</span><span>Privacy/legal copy pending</span></footer>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

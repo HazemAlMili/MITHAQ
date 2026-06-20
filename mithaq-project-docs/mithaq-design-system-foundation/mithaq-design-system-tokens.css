@@ -1,0 +1,149 @@
+/*
+  Mithaq Design System Foundation Tokens
+  Ticket: P4.01 - Design System Foundation
+  Status: PASS WITH CONDITIONS - Figma build pending
+
+  Planning/design-system token draft only.
+  Do not wire this file into a production frontend app in P4.01.
+*/
+
+:root {
+  /* Core backgrounds */
+  --mithaq-void: #08070f;
+  --mithaq-ink: #0e0c1a;
+  --mithaq-chamber: #161422;
+  --mithaq-wood: #1c1510;
+  --mithaq-panel: #14111f;
+  --mithaq-trust-navy: #1a2540;
+
+  /* Text */
+  --mithaq-parchment: #f2e8d0;
+  --mithaq-ivory: #fff7e6;
+  --mithaq-parchment-dim: #bfb09a;
+  --mithaq-text-subtle: #8f806e;
+  --mithaq-text-inverse-dark: #08070f;
+
+  /* Accents */
+  --mithaq-seal-gold: #c4913a;
+  --mithaq-gold-fill: #c4913a;
+  --mithaq-gold-light: #e8c97a;
+  --mithaq-gold-dim: #8b6420;
+  --mithaq-brass: #a7782f;
+  --mithaq-seal-highlight: #e8c97a;
+
+  /* Semantic aliases */
+  --color-bg-page: var(--mithaq-void);
+  --color-bg-surface: var(--mithaq-ink);
+  --color-bg-surface-strong: var(--mithaq-chamber);
+  --color-bg-panel: var(--mithaq-panel);
+  --color-bg-material-wood: var(--mithaq-wood);
+  --color-bg-trust: var(--mithaq-trust-navy);
+
+  --color-text-primary: var(--mithaq-parchment);
+  --color-text-strong: var(--mithaq-ivory);
+  --color-text-secondary: var(--mithaq-parchment-dim);
+  --color-text-subtle: var(--mithaq-text-subtle);
+  --color-text-on-accent: var(--mithaq-text-inverse-dark);
+
+  --color-accent-primary: var(--mithaq-seal-gold);
+  --color-accent-fill: var(--mithaq-gold-fill);
+  --color-accent-hover: var(--mithaq-gold-light);
+  --color-accent-muted: var(--mithaq-gold-dim);
+  --color-focus-ring: var(--mithaq-gold-light);
+
+  --color-border-subtle: rgba(242, 232, 208, 0.14);
+  --color-border-strong: rgba(242, 232, 208, 0.28);
+  --color-border-accent: rgba(196, 145, 58, 0.72);
+
+  --color-status-success-bg: #173f2a;
+  --color-status-success-text: var(--mithaq-parchment);
+  --color-status-warning-bg: #5a3f16;
+  --color-status-warning-text: var(--mithaq-parchment);
+  --color-status-error-bg: #8b1a1a;
+  --color-status-error-text: var(--mithaq-parchment);
+  --color-disabled-bg: rgba(242, 232, 208, 0.08);
+  --color-disabled-text: rgba(242, 232, 208, 0.42);
+
+  /* Typography */
+  --font-display-en: "Cormorant Garamond", Georgia, serif;
+  --font-body-en: "DM Sans", Arial, sans-serif;
+  --font-label-en: "JetBrains Mono", Consolas, monospace;
+  --font-body-ar: "Tajawal", Arial, sans-serif;
+  --font-display-ar: "Tajawal", Arial, sans-serif;
+  --font-accent-ar: "Lemonada", "Tajawal", Arial, sans-serif;
+
+  --type-display-xl: 88px;
+  --type-display-l: 72px;
+  --type-display-m: 56px;
+  --type-heading-l: 40px;
+  --type-heading-m: 32px;
+  --type-heading-s: 24px;
+  --type-body-l: 20px;
+  --type-body-m: 18px;
+  --type-body-s: 16px;
+  --type-label: 12px;
+  --type-micro: 11px;
+
+  --line-display-tight: 1.02;
+  --line-display: 1.1;
+  --line-heading-en: 1.25;
+  --line-heading-ar: 1.35;
+  --line-body-en: 1.7;
+  --line-body-ar: 1.8;
+  --line-label: 1.35;
+
+  /* Spacing */
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 96px;
+  --space-5xl: 128px;
+
+  /* Radius */
+  --radius-none: 0;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 999px;
+
+  /* Component candidates */
+  --button-height-lg: 56px;
+  --button-height-md: 48px;
+  --button-height-sm: 40px;
+  --tap-target-min: 44px;
+
+  --card-padding-mobile: var(--space-lg);
+  --card-padding-desktop: var(--space-xl);
+  --card-bg: var(--color-bg-panel);
+  --card-border: var(--color-border-subtle);
+  --card-border-hover: var(--color-border-accent);
+
+  --cta-outline-text: var(--color-text-primary);
+  --cta-outline-border: var(--color-accent-primary);
+  --cta-outline-hover-bg: rgba(196, 145, 58, 0.12);
+  --cta-filled-bg: var(--color-accent-fill);
+  --cta-filled-text: var(--color-text-on-accent);
+  --cta-filled-hover-bg: var(--color-accent-hover);
+  --cta-filled-hover-text: var(--color-text-on-accent);
+
+  --focus-outline-width: 2px;
+  --focus-outline-offset: 3px;
+
+  color-scheme: dark;
+}
+
+/*
+  Guardrails:
+  - White text is not allowed on filled gold CTAs.
+  - --mithaq-gold-dim is decorative only.
+  - Red should not be used as body/error text on dark backgrounds.
+  - Tajawal 700 is the safe Arabic display default.
+  - Lemonada is accent-only pending review.
+  - JetBrains Mono is for English labels/metadata only, not paragraph text.
+  - Mobile touch targets must be at least 44px.
+*/

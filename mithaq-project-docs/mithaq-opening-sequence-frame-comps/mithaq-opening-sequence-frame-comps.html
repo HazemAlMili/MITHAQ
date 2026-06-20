@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mithaq Opening Sequence Frame Comps - P4.03</title>
+  <style>
+    :root {
+      --mithaq-void: #08070f;
+      --mithaq-ink: #0e0c1a;
+      --mithaq-chamber: #161422;
+      --mithaq-wood: #1c1510;
+      --mithaq-panel: #14111f;
+      --mithaq-parchment: #f2e8d0;
+      --mithaq-ivory: #fff7e6;
+      --mithaq-parchment-dim: #bfb09a;
+      --mithaq-text-subtle: #8f806e;
+      --mithaq-gold: #c4913a;
+      --mithaq-gold-light: #e8c97a;
+      --mithaq-brass: #a7782f;
+      --mithaq-line: rgba(242, 232, 208, 0.16);
+      --mithaq-shadow: rgba(0, 0, 0, 0.58);
+      --frame-w: 1440px;
+      --frame-h: 900px;
+      --mobile-w: 390px;
+      --mobile-h: 844px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #050407;
+      color: var(--mithaq-parchment);
+      font-family: "DM Sans", Arial, sans-serif;
+    }
+
+    .board {
+      min-width: 1540px;
+      padding: 40px;
+    }
+
+    .cover {
+      width: 1180px;
+      padding: 28px;
+      margin-bottom: 38px;
+      border: 1px solid var(--mithaq-line);
+      background: linear-gradient(135deg, rgba(20, 17, 31, 0.92), rgba(8, 7, 15, 0.96));
+      box-shadow: 0 26px 70px var(--mithaq-shadow);
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1,
+    .display {
+      font-family: Georgia, "Times New Roman", serif;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      font-size: 44px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin: 46px 0 20px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 30px;
+      font-weight: 600;
+    }
+
+    .cover p {
+      max-width: 940px;
+      color: var(--mithaq-parchment-dim);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    .status {
+      display: inline-flex;
+      padding: 8px 11px;
+      border: 1px solid rgba(196, 145, 58, 0.45);
+      color: var(--mithaq-gold-light);
+      font: 500 11px/1.2 "JetBrains Mono", Consolas, monospace;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .frame-stack {
+      display: grid;
+      grid-template-columns: var(--frame-w);
+      gap: 34px;
+    }
+
+    .fallback-grid {
+      display: grid;
+      grid-template-columns: var(--frame-w) var(--mobile-w);
+      gap: 34px;
+      align-items: start;
+    }
+
+    .frame {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(242, 232, 208, 0.22);
+      background:
+        radial-gradient(circle at 30% 12%, rgba(232, 201, 122, 0.09), transparent 28%),
+        linear-gradient(145deg, var(--mithaq-chamber), var(--mithaq-void) 58%, #030304);
+      box-shadow: 0 32px 82px var(--mithaq-shadow);
+      isolation: isolate;
+    }
+
+    .desktop {
+      width: var(--frame-w);
+      height: var(--frame-h);
+      padding: 28px 58px;
+    }
+
+    .mobile {
+      width: var(--mobile-w);
+      min-height: var(--mobile-h);
+      padding: 22px;
+    }
+
+    .frame::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background:
+        radial-gradient(circle at 50% 72%, rgba(196,145,58,0.12), transparent 31%),
+        linear-gradient(rgba(255,255,255,0.017) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
+      background-size: auto, 80px 80px, 80px 80px;
+      opacity: 0.56;
+    }
+
+    .labelbar {
+      position: relative;
+      z-index: 5;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--mithaq-gold-light);
+      font: 500 11px/1.35 "JetBrains Mono", Consolas, monospace;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .mobile .labelbar {
+      display: block;
+      font-size: 10px;
+      line-height: 1.55;
+    }
+
+    .timechip {
+      color: var(--mithaq-parchment-dim);
+    }
+
+    .stage {
+      position: absolute;
+      inset: 72px 58px 104px;
+      z-index: 2;
+    }
+
+    .mobile .stage {
+      position: relative;
+      inset: auto;
+      min-height: 560px;
+      margin-top: 24px;
+    }
+
+    .void-layer,
+    .desk,
+    .seal,
+    .gavel,
+    .particles,
+    .ripple,
+    .dom,
+    .skip,
+    .light-beam,
+    .chamber-depth {
+      position: absolute;
+    }
+
+    .void-layer {
+      inset: 0;
+      background: radial-gradient(circle at 50% 52%, rgba(11, 10, 16, 0.75), rgba(2, 2, 3, 0.98) 74%);
+      opacity: 1;
+    }
+
+    .light-beam {
+      left: -8%;
+      top: -22%;
+      width: 64%;
+      height: 74%;
+      transform: rotate(-18deg);
+      background: linear-gradient(90deg, transparent, rgba(232, 201, 122, 0.16), transparent);
+      filter: blur(18px);
+      opacity: 0;
+    }
+
+    .particles {
+      inset: 0;
+      opacity: 0;
+      background-image:
+        radial-gradient(circle, rgba(232,201,122,0.5) 0 1px, transparent 1.7px),
+        radial-gradient(circle, rgba(242,232,208,0.32) 0 1px, transparent 1.5px);
+      background-position: 120px 90px, 410px 180px;
+      background-size: 160px 120px, 210px 160px;
+      mask-image: radial-gradient(circle at 42% 35%, black, transparent 66%);
+    }
+
+    .desk {
+      left: 4%;
+      right: 4%;
+      bottom: 0;
+      height: 42%;
+      border-radius: 50% 50% 10px 10px / 20% 20% 10px 10px;
+      border: 1px solid rgba(242, 232, 208, 0.13);
+      background:
+        linear-gradient(90deg, transparent 0 18%, rgba(232,201,122,0.075), transparent 72%),
+        repeating-linear-gradient(96deg, rgba(242,232,208,0.024) 0 2px, transparent 2px 24px),
+        linear-gradient(180deg, #362116, #160e0a 72%, #070504);
+      box-shadow: inset 0 18px 48px rgba(255,255,255,0.026), 0 -30px 90px rgba(0,0,0,0.42);
+      opacity: 0;
+      transform: translateY(80px) scale(1.04);
+    }
+
+    .chamber-depth {
+      inset: 0;
+      opacity: 0;
+      background:
+        linear-gradient(90deg, transparent 0 18%, rgba(242,232,208,0.045) 18% 18.3%, transparent 18.3% 42%, rgba(242,232,208,0.032) 42% 42.3%, transparent 42.3% 68%, rgba(242,232,208,0.03) 68% 68.3%, transparent 68.3%),
+        radial-gradient(circle at 50% 70%, transparent, rgba(0,0,0,0.4));
+    }
+
+    .gavel {
+      width: 310px;
+      height: 38px;
+      border-radius: 23px;
+      background: linear-gradient(90deg, #0e0906, #4a2b17 50%, #160d08);
+      box-shadow: 0 28px 48px rgba(0,0,0,0.48);
+      transform: rotate(-16deg);
+      opacity: 0;
+    }
+
+    .gavel::before {
+      content: "";
+      position: absolute;
+      width: 112px;
+      height: 86px;
+      left: -42px;
+      top: -25px;
+      border-radius: 22px;
+      background: linear-gradient(140deg, #100b07, #5a351b, #110b07);
+      border-left: 10px solid rgba(167,120,47,0.52);
+      border-right: 10px solid rgba(167,120,47,0.52);
+      box-shadow: inset 0 10px 18px rgba(255,255,255,0.05);
+    }
+
+    .gavel::after {
+      content: "";
+      position: absolute;
+      left: -38px;
+      top: 62px;
+      width: 124px;
+      height: 18px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.48);
+      filter: blur(7px);
+    }
+
+    .seal {
+      left: 50%;
+      top: 54%;
+      width: 250px;
+      aspect-ratio: 1;
+      transform: translate(-50%, -50%) scale(0.82);
+      border-radius: 50%;
+      border: 3px double rgba(196,145,58,0.88);
+      background:
+        radial-gradient(circle at 50% 50%, rgba(232,201,122,0.12), transparent 38%),
+        radial-gradient(circle, rgba(196,145,58,0.10), rgba(28,21,16,0.72));
+      box-shadow:
+        inset 0 0 0 22px rgba(196,145,58,0.06),
+        inset 0 0 0 64px rgba(196,145,58,0.025),
+        0 18px 48px rgba(0,0,0,0.36);
+      opacity: 0;
+    }
+
+    .seal::before,
+    .seal::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(232,201,122,0.56);
+    }
+
+    .seal::before { inset: 26px; }
+    .seal::after { inset: 66px; }
+
+    .seal-mark {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: rgba(232,201,122,0.9);
+      font: 600 14px/1 "JetBrains Mono", Consolas, monospace;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      opacity: 0;
+    }
+
+    .ripple {
+      left: 50%;
+      top: 70%;
+      width: 80px;
+      aspect-ratio: 1;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      border: 1px solid rgba(232,201,122,0.62);
+      opacity: 0;
+      box-shadow: 0 0 0 0 rgba(196,145,58,0.14), 0 0 48px rgba(196,145,58,0.18);
+    }
+
+    .ripple::before,
+    .ripple::after {
+      content: "";
+      position: absolute;
+      inset: -32px;
+      border-radius: 50%;
+      border: 1px solid rgba(196,145,58,0.32);
+    }
+
+    .ripple::after { inset: -72px; opacity: 0.56; }
+
+    .dom {
+      z-index: 6;
+      max-width: 520px;
+      left: 82px;
+      top: 172px;
+      opacity: 0;
+    }
+
+    .dom.centered {
+      left: 50%;
+      top: 110px;
+      transform: translateX(-50%);
+      text-align: center;
+      max-width: 690px;
+    }
+
+    .dom .brand {
+      font: 600 14px/1.2 "JetBrains Mono", Consolas, monospace;
+      color: var(--mithaq-gold-light);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .dom h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 68px;
+      line-height: 1;
+      font-weight: 600;
+      margin: 0 0 18px;
+      color: var(--mithaq-ivory);
+    }
+
+    .dom p {
+      color: var(--mithaq-parchment-dim);
+      font-size: 18px;
+      line-height: 1.7;
+      margin-bottom: 26px;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 8px;
+      border: 1px solid rgba(196,145,58,0.86);
+      color: var(--mithaq-gold-light);
+      background: rgba(8,7,15,0.35);
+      font-weight: 600;
+    }
+
+    .btn.filled {
+      background: var(--mithaq-gold);
+      color: var(--mithaq-void);
+    }
+
+    .skip {
+      right: 42px;
+      bottom: 34px;
+      z-index: 6;
+      color: var(--mithaq-text-subtle);
+      font: 500 11px/1.3 "JetBrains Mono", Consolas, monospace;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0;
+    }
+
+    .annotations {
+      position: absolute;
+      left: 58px;
+      right: 58px;
+      bottom: 22px;
+      z-index: 7;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+
+    .mobile .annotations {
+      position: relative;
+      left: auto;
+      right: auto;
+      bottom: auto;
+      grid-template-columns: 1fr;
+      margin-top: 16px;
+    }
+
+    .note {
+      min-height: 62px;
+      padding: 10px;
+      border: 1px solid rgba(242,232,208,0.15);
+      background: rgba(8,7,15,0.66);
+      color: var(--mithaq-parchment-dim);
+      font-size: 11px;
+      line-height: 1.42;
+    }
+
+    .note strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--mithaq-gold-light);
+      font: 500 9px/1.2 "JetBrains Mono", Consolas, monospace;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .kf01 .void-layer { opacity: 1; }
+    .kf01 .particles { opacity: 0.05; }
+
+    .kf02 .void-layer { opacity: 0.72; }
+    .kf02 .light-beam { opacity: 0.78; }
+    .kf02 .particles { opacity: 0.28; }
+    .kf02 .desk { opacity: 0.88; transform: translateY(22px) scale(1.02); }
+
+    .kf03 .void-layer { opacity: 0.46; }
+    .kf03 .light-beam { opacity: 0.78; }
+    .kf03 .particles { opacity: 0.22; }
+    .kf03 .desk { opacity: 1; transform: translateY(0) scale(1); }
+    .kf03 .gavel { opacity: 1; left: 48%; top: 18%; transform: rotate(-16deg) translateY(-60px); }
+    .kf03 .skip { opacity: 0.64; }
+
+    .kf04 .void-layer { opacity: 0.36; }
+    .kf04 .light-beam { opacity: 0.88; }
+    .kf04 .desk { opacity: 1; transform: translateY(0) scale(1); }
+    .kf04 .gavel { opacity: 1; left: 48%; top: 43%; transform: rotate(-16deg) translateY(0); }
+    .kf04 .ripple { opacity: 0.62; width: 92px; top: 67%; }
+
+    .kf05 .void-layer { opacity: 0.32; }
+    .kf05 .light-beam { opacity: 0.72; }
+    .kf05 .desk { opacity: 1; transform: translateY(0) scale(1); }
+    .kf05 .gavel { opacity: 0.82; left: 56%; top: 49%; transform: rotate(-16deg) translateY(8px); }
+    .kf05 .ripple { opacity: 0.84; width: 410px; top: 64%; }
+
+    .kf06 .void-layer { opacity: 0.22; }
+    .kf06 .light-beam { opacity: 0.8; }
+    .kf06 .desk { opacity: 1; transform: translateY(0) scale(1); }
+    .kf06 .gavel { opacity: 0.62; left: 63%; top: 56%; transform: rotate(-16deg) scale(0.9); }
+    .kf06 .ripple { opacity: 0.38; width: 520px; top: 62%; }
+    .kf06 .seal { opacity: 0.74; transform: translate(-50%, -50%) scale(0.92); }
+    .kf06 .seal-mark { opacity: 0.24; }
+
+    .kf07 .void-layer { opacity: 0.16; }
+    .kf07 .light-beam { opacity: 0.86; }
+    .kf07 .chamber-depth { opacity: 0.42; }
+    .kf07 .desk { opacity: 1; transform: translateY(0) scale(1); }
+    .kf07 .gavel { opacity: 0.54; left: 67%; top: 60%; transform: rotate(-16deg) scale(0.82); }
+    .kf07 .seal { opacity: 1; transform: translate(-50%, -50%) scale(1.15); }
+    .kf07 .seal-mark { opacity: 0.86; }
+    .kf07 .dom { opacity: 0.18; }
+
+    .kf08 .void-layer { opacity: 0.14; }
+    .kf08 .light-beam { opacity: 0.8; }
+    .kf08 .particles { opacity: 0.18; }
+    .kf08 .chamber-depth { opacity: 0.46; }
+    .kf08 .desk { opacity: 1; transform: translateY(0) scale(1); }
+    .kf08 .gavel { opacity: 0.42; left: 67%; top: 62%; transform: rotate(-16deg) scale(0.8); }
+    .kf08 .seal { left: 68%; top: 56%; opacity: 0.78; transform: translate(-50%, -50%) scale(1.05); }
+    .kf08 .seal-mark { opacity: 0.72; }
+    .kf08 .dom { opacity: 1; }
+
+    .reduced .void-layer { opacity: 0.18; }
+    .reduced .light-beam { opacity: 0.78; }
+    .reduced .desk { opacity: 1; transform: translateY(0) scale(1); }
+    .reduced .seal { left: 70%; top: 54%; opacity: 0.92; transform: translate(-50%, -50%) scale(1.05); }
+    .reduced .seal-mark { opacity: 0.82; }
+    .reduced .gavel { opacity: 0.38; left: 67%; top: 64%; transform: rotate(-16deg) scale(0.72); }
+    .reduced .dom { opacity: 1; }
+
+    .mobile .light-beam { opacity: 0.74; left: -18%; width: 92%; }
+    .mobile .desk { left: -18%; right: -18%; height: 32%; opacity: 1; transform: translateY(0) scale(1); }
+    .mobile .seal { width: 156px; left: 50%; top: 37%; opacity: 0.9; transform: translate(-50%, -50%) scale(1); }
+    .mobile .seal-mark { opacity: 0.7; font-size: 10px; }
+    .mobile .gavel { width: 150px; height: 22px; left: 53%; top: 55%; opacity: 0.42; transform: rotate(-17deg); }
+    .mobile .gavel::before { width: 62px; height: 48px; left: -22px; top: -14px; border-left-width: 6px; border-right-width: 6px; border-radius: 14px; }
+    .mobile .dom {
+      position: relative;
+      left: auto;
+      top: auto;
+      opacity: 1;
+      max-width: none;
+      padding-top: 360px;
+    }
+    .mobile .dom h3 { font-size: 42px; line-height: 1.08; }
+    .mobile .dom p { font-size: 16px; line-height: 1.68; }
+    .mobile .cta-row { flex-direction: column; }
+    .mobile .btn { width: 100%; }
+
+    .rtl-line {
+      direction: rtl;
+      text-align: right;
+      font-family: Tahoma, Arial, sans-serif;
+      color: var(--mithaq-parchment);
+      line-height: 1.65;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--mithaq-line);
+    }
+  </style>
+</head>
+<body>
+  <main class="board">
+    <section class="cover">
+      <h1>Mithaq Opening Sequence Frame Comps</h1>
+      <p>P4.03 visual keyframe board. These are implementation-safe visual frame comps for the scroll-driven opening sequence: judicial darkness, desk reveal, gavel trigger, controlled authority ripple, Covenant Seal reveal, and DOM/CTA handoff.</p>
+      <p>This file is an art-direction deliverable only. It does not implement R3F, GSAP, ScrollTrigger, shaders, production CSS, frontend components, final GLB assets, final sound, or final copy.</p>
+      <div class="status">PASS WITH CONDITIONS - Figma build pending</div>
+    </section>
+
+    <h2>Desktop Opening Keyframes / 1440 x 900</h2>
+    <section class="frame-stack">
+      <article class="frame desktop kf01">
+        <div class="labelbar"><span>KF01 - Black Judicial Void</span><span class="timechip">Local progress 0% / Time 0.0s</span></div>
+        <div class="stage">
+          <div class="void-layer"></div><div class="particles"></div>
+        </div>
+        <div class="annotations">
+          <div class="note"><strong>Visual</strong>Near-black chamber entry; quiet but intentional.</div>
+          <div class="note"><strong>Camera</strong>No object yet; hidden/static camera.</div>
+          <div class="note"><strong>3D</strong>Canvas may be visually empty or initializing.</div>
+          <div class="note"><strong>DOM/CTA</strong>No main copy visible yet.</div>
+          <div class="note"><strong>A11Y</strong>Must not look broken; fallback content exists outside canvas.</div>
+        </div>
+      </article>
+
+      <article class="frame desktop kf02">
+        <div class="labelbar"><span>KF02 - Desk Surface Emerges</span><span class="timechip">Local progress 15% / Time 1.0s</span></div>
+        <div class="stage">
+          <div class="void-layer"></div><div class="light-beam"></div><div class="particles"></div><div class="desk"></div>
+        </div>
+        <div class="annotations">
+          <div class="note"><strong>Visual</strong>Dark wood desk revealed by warm upper-left light.</div>
+          <div class="note"><strong>Camera</strong>Low macro desk angle; grain readable.</div>
+          <div class="note"><strong>3D</strong>Desk plane/material and subtle particles.</div>
+          <div class="note"><strong>DOM/CTA</strong>No headline yet.</div>
+          <div class="note"><strong>Performance</strong>One optimized desk surface; avoid heavy textures.</div>
+        </div>
+      </article>
+
+      <article class="frame desktop kf03">
+        <div class="labelbar"><span>KF03 - Gavel Descent</span><span class="timechip">Local progress 28% / Time 2.4s</span></div>
+        <div class="stage">
+          <div class="void-layer"></div><div class="light-beam"></div><div class="particles"></div><div class="desk"></div><div class="gavel"></div><div class="skip">Scroll to continue</div>
+        </div>
+        <div class="annotations">
+          <div class="note"><strong>Visual</strong>Gavel suspended above desk; authority tension.</div>
+          <div class="note"><strong>Camera</strong>Macro close-up, not aggressive.</div>
+          <div class="note"><strong>3D</strong>Gavel, desk shadow, restrained brass highlight.</div>
+          <div class="note"><strong>DOM/CTA</strong>Optional skip/continue label only.</div>
+          <div class="note"><strong>Rule</strong>Gavel is trigger, never the brand hero.</div>
+        </div>
+      </article>
+
+      <article class="frame desktop kf04">
+        <div class="labelbar"><span>KF04 - Strike Moment</span><span class="timechip">Local progress 36% / Time 3.4s</span></div>
+        <div class="stage">
+          <div class="void-layer"></div><div class="light-beam"></div><div class="desk"></div><div class="gavel"></div><div class="ripple"></div>
+        </div>
+        <div class="annotations">
+          <div class="note"><strong>Visual</strong>Short contact point with tiny gold accent.</div>
+          <div class="note"><strong>Camera</strong>Tight impact area; no violent framing.</div>
+          <div class="note"><strong>3D</strong>Gavel touches desk; no cracked surfaces.</div>
+          <div class="note"><strong>DOM/CTA</strong>No long copy.</div>
+          <div class="note"><strong>Sound</strong>Optional deep restrained contact only.</div>
+        </div>
+      </article>
+
+      <article class="frame desktop kf05">
+        <div class="labelbar"><span>KF05 - Ripple / Authority Ring</span><span class="timechip">Local progress 45% / Time 4.0s</span></div>
+        <div class="stage">
+          <div class="void-layer"></div><div class="light-beam"></div><div class="desk"></div><div class="gavel"></div><div class="ripple"></div>
+        </div>
+        <div class="annotations">
+          <div class="note"><strong>Visual</strong>Concentric authority ring expands across desk.</div>
+          <div class="note"><strong>Camera</strong>Slight pullback; ring becomes readable.</div>
+          <div class="note"><strong>3D</strong>Structured gold linework, not explosion.</div>
+          <div class="note"><strong>DOM/CTA</strong>Still minimal.</div>
+          <div class="note"><strong>Performance</strong>Use restrained path/mesh; shader fallback required.</div>
+        </div>
+      </article>
+
+      <article class="frame desktop kf06">
+        <div class="labelbar"><span>KF06 - Seal Outline Forms</span><span class="timechip">Local progress 60% / Time 5.4s</span></div>
+        <div class="stage">
+          <div class="void-layer"></div><div class="light-beam"></div><div class="desk"></div><div class="gavel"></div><div class="ripple"></div><div class="seal"><div class="seal-mark">MITHAQ</div></div>
+        </div>
+        <div class="annotations">
+          <div class="note"><strong>Visual</strong>Circular seal outline appears at center.</div>
+          <div class="note"><strong>Camera</strong>Pullback enough for seal geometry.</div>
+          <div class="note"><strong>3D</strong>Seal outline/emboss starts; gavel recedes.</div>
+          <div class="note"><strong>DOM/CTA</strong>Brand text still hidden/preparing.</div>
+          <div class="note"><strong>Transition</strong>Key shift from gavel trigger to Seal hero.</div>
+        </div>
+      </article>
+
+      <article class="frame desktop kf07">
+        <div class="labelbar"><span>KF07 - Seal Completed / Hero Anchor</span><span class="timechip">Local progress 78% / Time 6.5s</span></div>
+        <div class="stage">
+          <div class="void-layer"></div><div class="light-beam"></div><div class="chamber-depth"></div><div class="desk"></div><div class="gavel"></div><div class="seal"><div class="seal-mark">MITHAQ</div></div>
+          <div class="dom centered"><div class="brand">Wordmark zone begins</div></div>
+        </div>
+        <div class="annotations">
+          <div class="note"><strong>Visual</strong>Seal complete and centered; hero anchor established.</div>
+          <div class="note"><strong>Camera</strong>Ceremonial centered composition.</div>
+          <div class="note"><strong>3D</strong>Seal dominates; desk and gavel support.</div>
+          <div class="note"><strong>DOM/CTA</strong>Wordmark zone starts, CTA not yet visible.</div>
+          <div class="note"><strong>Lighting</strong>Warm key and subtle brass rim; no self-glow flood.</div>
+        </div>
+      </article>
+
+      <article class="frame desktop kf08">
+        <div class="labelbar"><span>KF08 - Wordmark + CTA Handoff</span><span class="timechip">Local progress 100% / Time 8.5s</span></div>
+        <div class="stage">
+          <div class="void-layer"></div><div class="light-beam"></div><div class="particles"></div><div class="chamber-depth"></div><div class="desk"></div><div class="gavel"></div><div class="seal"><div class="seal-mark">MITHAQ</div></div>
+          <div class="dom"><div class="brand">MITHAQ / ميثاق</div><h3>The Covenant Seal</h3><p>Candidate identity handoff only. Final copy, logo, wordmark, WhatsApp number, and Arabic review remain pending.</p><div class="cta-row"><span class="btn filled">Ask on WhatsApp</span><span class="btn">Register Interest</span></div></div>
+        </div>
+        <div class="annotations">
+          <div class="note"><strong>Visual</strong>Identity, support line, and CTA visible.</div>
+          <div class="note"><strong>Camera</strong>Stable hero overlay framing.</div>
+          <div class="note"><strong>3D</strong>Seal/gavel become atmospheric anchor.</div>
+          <div class="note"><strong>DOM/CTA</strong>Real DOM zone; CTA is not canvas-only.</div>
+          <div class="note"><strong>Handoff</strong>Ready to flow into Scene 02 without scroll trap.</div>
+        </div>
+      </article>
+    </section>
+
+    <h2>Fallback / Mobile Keyframes</h2>
+    <section class="fallback-grid">
+      <article class="frame desktop reduced">
+        <div class="labelbar"><span>KF09 - Reduced Motion Static Opening</span><span class="timechip">Reduced motion / Static equivalent</span></div>
+        <div class="stage">
+          <div class="void-layer"></div><div class="light-beam"></div><div class="desk"></div><div class="gavel"></div><div class="seal"><div class="seal-mark">MITHAQ</div></div>
+          <div class="dom"><div class="brand">MITHAQ / ميثاق</div><h3>Static Seal Opening</h3><p>Reduced-motion and WebGL fallback: premium static seal/desk poster, identity visible, CTA available immediately.</p><div class="cta-row"><span class="btn filled">Ask on WhatsApp</span><span class="btn">Register Interest</span></div></div>
+        </div>
+        <div class="annotations">
+          <div class="note"><strong>Fallback</strong>No gavel movement, ripple, seal draw, camera pullback, or required sound.</div>
+          <div class="note"><strong>A11Y</strong>Equivalent content and CTA visible immediately.</div>
+          <div class="note"><strong>Performance</strong>Can use static image/poster if WebGL fails.</div>
+          <div class="note"><strong>Content</strong>Final assets and copy pending.</div>
+          <div class="note"><strong>CTA</strong>WHATSAPP_NUMBER_PENDING.</div>
+        </div>
+      </article>
+
+      <article class="frame mobile">
+        <div class="labelbar"><span>KF10 - Mobile Opening State</span><span class="timechip">390px / Condensed local opening</span></div>
+        <div class="stage">
+          <div class="void-layer"></div><div class="light-beam"></div><div class="desk"></div><div class="gavel"></div><div class="seal"><div class="seal-mark">MITHAQ</div></div>
+          <div class="dom"><div class="brand">MITHAQ / ميثاق</div><h3>Seal First, CTA Early</h3><p>Mobile uses a short, simplified/static opening. No long pinned intro, no heavy camera travel, and CTA appears earlier.</p><div class="rtl-line">ميثاق — من الدراسة إلى الاحتراف</div><div class="cta-row"><span class="btn filled">سجّل اهتمامك</span><span class="btn">Ask on WhatsApp</span></div></div>
+        </div>
+        <div class="annotations">
+          <div class="note"><strong>Mobile</strong>Poster/simplified 3D; fewer particles.</div>
+          <div class="note"><strong>RTL</strong>Arabic is full line/block, not letter-split.</div>
+          <div class="note"><strong>A11Y</strong>44px tap targets; content visible without motion.</div>
+          <div class="note"><strong>Performance</strong>Static fallback if FPS drops.</div>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

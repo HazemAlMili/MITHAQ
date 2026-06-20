@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mithaq Material Contact Sheet</title>
+  <style>
+    :root {
+      --void: #08070f;
+      --ink: #0e0c1a;
+      --panel: #14111f;
+      --parchment: #f2e8d0;
+      --muted: #bfb09a;
+      --gold: #c4913a;
+      --line: rgba(242, 232, 208, 0.16);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--void);
+      color: var(--parchment);
+      font-family: Arial, sans-serif;
+      padding: 32px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 36px;
+      font-weight: 600;
+    }
+    p {
+      margin: 0 0 24px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(240px, 1fr));
+      gap: 18px;
+      max-width: 1120px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      padding: 14px;
+    }
+    img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border: 1px solid rgba(196,145,58,0.45);
+      margin-bottom: 12px;
+    }
+    h2 {
+      margin: 0 0 6px;
+      color: var(--gold);
+      font: 700 13px/1.3 Consolas, monospace;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    code {
+      color: var(--parchment);
+      font-size: 12px;
+      word-break: break-all;
+    }
+    .note {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mithaq Dark Texture & Material Library</h1>
+  <p>Visual contact sheet for P4.06. Assets are locally procedurally generated and source-safe. KTX2 conversion is pending because no local KTX2/Basis encoder is available in this workspace.</p>
+  <section class="grid">
+    <article class="card"><img src="../webp/wood-dark/mithaq-wood-dark-base-color-1024.webp" alt="Dark wood base texture"><h2>Wood Dark / Base</h2><code>mithaq-wood-dark-base-color-1024.webp</code><div class="note">Legal desk, gavel reference, dark editorial material.</div></article>
+    <article class="card"><img src="../webp/wood-dark/mithaq-wood-dark-subtle-color-1024.webp" alt="Dark wood subtle texture"><h2>Wood Dark / Subtle</h2><code>mithaq-wood-dark-subtle-color-1024.webp</code><div class="note">Safer under overlays and static backgrounds.</div></article>
+    <article class="card"><img src="../webp/wood-dark/mithaq-wood-dark-preview-color-512.webp" alt="Dark wood preview texture"><h2>Wood Dark / Preview</h2><code>mithaq-wood-dark-preview-color-512.webp</code><div class="note">Contact sheet and Figma swatch use.</div></article>
+    <article class="card"><img src="../webp/parchment-aged/mithaq-parchment-aged-base-color-1024.webp" alt="Aged parchment base texture"><h2>Parchment / Base</h2><code>mithaq-parchment-aged-base-color-1024.webp</code><div class="note">Documents, dossier cards, paper surfaces.</div></article>
+    <article class="card"><img src="../webp/parchment-aged/mithaq-parchment-aged-subtle-color-1024.webp" alt="Aged parchment subtle texture"><h2>Parchment / Subtle</h2><code>mithaq-parchment-aged-subtle-color-1024.webp</code><div class="note">Use with contrast checks when near text.</div></article>
+    <article class="card"><img src="../webp/parchment-aged/mithaq-parchment-aged-preview-color-512.webp" alt="Aged parchment preview texture"><h2>Parchment / Preview</h2><code>mithaq-parchment-aged-preview-color-512.webp</code><div class="note">Preview and swatch use.</div></article>
+    <article class="card"><img src="../webp/gold-foil/mithaq-gold-foil-base-color-1024.webp" alt="Gold foil base texture"><h2>Gold Foil / Base</h2><code>mithaq-gold-foil-base-color-1024.webp</code><div class="note">Seal material reference and stamped accents.</div></article>
+    <article class="card"><img src="../webp/gold-foil/mithaq-gold-foil-subtle-color-1024.webp" alt="Gold foil subtle texture"><h2>Gold Foil / Subtle</h2><code>mithaq-gold-foil-subtle-color-1024.webp</code><div class="note">Decorative accent only; never body text.</div></article>
+    <article class="card"><img src="../webp/gold-foil/mithaq-gold-foil-preview-color-512.webp" alt="Gold foil preview texture"><h2>Gold Foil / Preview</h2><code>mithaq-gold-foil-preview-color-512.webp</code><div class="note">Preview and swatch use.</div></article>
+    <article class="card"><img src="../webp/leather-dark/mithaq-leather-dark-base-color-1024.webp" alt="Dark leather base texture"><h2>Leather Dark / Base</h2><code>mithaq-leather-dark-base-color-1024.webp</code><div class="note">Writing pad, folio, premium panel accent.</div></article>
+    <article class="card"><img src="../webp/leather-dark/mithaq-leather-dark-subtle-color-1024.webp" alt="Dark leather subtle texture"><h2>Leather Dark / Subtle</h2><code>mithaq-leather-dark-subtle-color-1024.webp</code><div class="note">Text-adjacent dark surface with overlay.</div></article>
+    <article class="card"><img src="../webp/leather-dark/mithaq-leather-dark-preview-color-512.webp" alt="Dark leather preview texture"><h2>Leather Dark / Preview</h2><code>mithaq-leather-dark-preview-color-512.webp</code><div class="note">Preview and swatch use.</div></article>
+  </section>
+</body>
+</html>
