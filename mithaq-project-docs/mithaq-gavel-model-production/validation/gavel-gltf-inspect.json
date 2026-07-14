@@ -1,0 +1,42 @@
+{
+  "triangle_count": 15084,
+  "mesh_count": 13,
+  "material_count": 4,
+  "materials": [
+    "Mithaq_Dark_Wood",
+    "Mithaq_Dark_Wood_Darker_Endgrain",
+    "Mithaq_Edge_Wear_Optional",
+    "Mithaq_Muted_Brass"
+  ],
+  "texture_count": 0,
+  "texture_dimensions": [],
+  "uv_status": "Smart UV Project applied to visible mesh objects; procedural materials used.",
+  "pivot_origin_note": "Gavel_Pivot_Helper at (0, -0.18, 0); Gavel_Contact_Point_Negative_X at (-0.78, 0, 0).",
+  "blender_version": "5.1.2",
+  "source_file": "D:\\Clinets\\MITHAQ\\MITHAQ\\mithaq-project-docs\\mithaq-gavel-model-production\\source\\gavel.blend",
+  "raw_glb": "D:\\Clinets\\MITHAQ\\MITHAQ\\mithaq-project-docs\\mithaq-gavel-model-production\\exports\\gavel.raw.glb",
+  "optimized_glb": "D:\\Clinets\\MITHAQ\\MITHAQ\\mithaq-project-docs\\mithaq-gavel-model-production\\exports\\gavel.opt.glb",
+  "raw_file_size_bytes": 416000,
+  "optimized_file_size_bytes": 89480,
+  "optimization_method": "Blender GLTF exporter Draco compression fallback; gltfpack unavailable in shell.",
+  "previews": [
+    "gavel-preview-front.png",
+    "gavel-preview-side.png",
+    "gavel-preview-perspective.png",
+    "gavel-preview-opening-angle.png",
+    "gavel-preview-wireframe.png"
+  ],
+  "raw_import_test": {
+    "status": "PASS",
+    "mesh_count": 13,
+    "material_count": 4,
+    "triangle_count": 15084
+  },
+  "optimized_import_test": {
+    "status": "PASS",
+    "mesh_count": 13,
+    "material_count": 4,
+    "triangle_count": 15084
+  },
+  "validation_method": "Blender 5.1.2 background import_scene.gltf import test."
+}

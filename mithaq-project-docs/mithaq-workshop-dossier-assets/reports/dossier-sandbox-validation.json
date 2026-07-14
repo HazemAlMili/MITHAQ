@@ -1,0 +1,115 @@
+{
+  "timestamp": "2026-07-14T15:48:05.521Z",
+  "baseUrl": "http://127.0.0.1:5340/",
+  "browser": "Chromium headless shell via Playwright",
+  "results": [
+    {
+      "mode": "resting",
+      "capture": "captures/dossier-desktop-resting.png",
+      "consoleErrors": [],
+      "metrics": {
+        "mode": "resting",
+        "averageFps": 49.02451684697148,
+        "samples": 40,
+        "rendererInfo": {
+          "calls": 7,
+          "triangles": 1492,
+          "geometries": 7,
+          "textures": 1,
+          "programs": 2
+        },
+        "consoleErrors": 0
+      }
+    },
+    {
+      "mode": "hover",
+      "capture": "captures/dossier-desktop-hover.png",
+      "consoleErrors": [],
+      "metrics": {
+        "mode": "hover",
+        "averageFps": 66.71576649239503,
+        "samples": 49,
+        "rendererInfo": {
+          "calls": 7,
+          "triangles": 1492,
+          "geometries": 7,
+          "textures": 1,
+          "programs": 2
+        },
+        "consoleErrors": 0
+      }
+    },
+    {
+      "mode": "multiple",
+      "capture": "captures/dossier-multiple-layout.png",
+      "consoleErrors": [],
+      "metrics": {
+        "mode": "multiple",
+        "averageFps": 53.06961489665097,
+        "samples": 35,
+        "rendererInfo": {
+          "calls": 19,
+          "triangles": 4452,
+          "geometries": 7,
+          "textures": 1,
+          "programs": 2
+        },
+        "consoleErrors": 0
+      }
+    },
+    {
+      "mode": "mobile-light",
+      "capture": "captures/dossier-mobile-light.png",
+      "consoleErrors": [],
+      "metrics": {
+        "mode": "mobile-light",
+        "averageFps": 60.10236917923517,
+        "samples": 155,
+        "rendererInfo": {
+          "calls": 4,
+          "triangles": 388,
+          "geometries": 4,
+          "textures": 0,
+          "programs": 2
+        },
+        "consoleErrors": 0
+      }
+    },
+    {
+      "mode": "selected",
+      "capture": "captures/dossier-selected-reference.png",
+      "consoleErrors": [],
+      "metrics": {
+        "mode": "selected",
+        "averageFps": 53.37558701112771,
+        "samples": 38,
+        "rendererInfo": {
+          "calls": 8,
+          "triangles": 1684,
+          "geometries": 8,
+          "textures": 1,
+          "programs": 3
+        },
+        "consoleErrors": 0
+      }
+    },
+    {
+      "mode": "wireframe",
+      "capture": "captures/dossier-wireframe-debug.png",
+      "consoleErrors": [],
+      "metrics": {
+        "mode": "wireframe",
+        "averageFps": 69.2984007689244,
+        "samples": 51,
+        "rendererInfo": {
+          "calls": 7,
+          "triangles": 1492,
+          "geometries": 7,
+          "textures": 1,
+          "programs": 2
+        },
+        "consoleErrors": 0
+      }
+    }
+  ]
+}

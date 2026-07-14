@@ -1,0 +1,178 @@
+{
+  "timestamp": "2026-07-14T15:17:30.697Z",
+  "sweepErrors": [],
+  "sweep": {
+    "snapshots": [
+      {
+        "p": 0,
+        "text": "P5.07 Architecture PoC01 / Gavel Seal OpeningGlobal scroll0.000Scene progress0.000Reduced motionfalseWebGLavailableDevice tier: midReduced motion: OFFSet CTA source placeholder12345678910",
+        "canvasCount": 1,
+        "auditActiveScene": 1,
+        "sceneProgress": 0
+      },
+      {
+        "p": 0.1,
+        "text": "P5.07 Architecture PoC02 / Hero / Mithaq RevealGlobal scroll0.100Scene progress0.000Reduced motionfalseWebGLavailableDevice tier: midReduced motion: OFFSet CTA source placeholder12345678910",
+        "canvasCount": 1,
+        "auditActiveScene": 2,
+        "sceneProgress": 0.0001645602948920309
+      },
+      {
+        "p": 0.22,
+        "text": "P5.07 Architecture PoC02 / Hero / Mithaq RevealGlobal scroll0.220Scene progress1.000Reduced motionfalseWebGLavailableDevice tier: midReduced motion: OFFSet CTA source placeholder12345678910",
+        "canvasCount": 1,
+        "auditActiveScene": 2,
+        "sceneProgress": 0.9998683517640863
+      },
+      {
+        "p": 0.37,
+        "text": "P5.07 Architecture PoC03 / The GapGlobal scroll0.370Scene progress1.000Reduced motionfalseWebGLavailableDevice tier: midReduced motion: OFFSet CTA source placeholder12345678910",
+        "canvasCount": 1,
+        "auditActiveScene": 3,
+        "sceneProgress": 0.9997630331753554
+      },
+      {
+        "p": 0.5,
+        "text": "P5.07 Architecture PoC05 / Training PillarsGlobal scroll0.500Scene progress0.000Reduced motionfalseWebGLavailableDevice tier: midReduced motion: OFFSet CTA source placeholder12345678910",
+        "canvasCount": 1,
+        "auditActiveScene": 5,
+        "sceneProgress": 0
+      },
+      {
+        "p": 0.62,
+        "text": "P5.07 Architecture PoC05 / Training PillarsGlobal scroll0.620Scene progress1.000Reduced motionfalseWebGLavailableDevice tier: midReduced motion: OFFSet CTA source placeholder12345678910",
+        "canvasCount": 1,
+        "auditActiveScene": 5,
+        "sceneProgress": 0.9997037914691947
+      },
+      {
+        "p": 0.72,
+        "text": "P5.07 Architecture PoC06 / Workshops PreviewGlobal scroll0.720Scene progress1.000Reduced motionfalseWebGLavailableDevice tier: midReduced motion: OFFSet CTA source placeholder12345678910",
+        "canvasCount": 1,
+        "auditActiveScene": 6,
+        "sceneProgress": 0.9998420221169038
+      },
+      {
+        "p": 0.82,
+        "text": "P5.07 Architecture PoC08 / Trust & CredibilityGlobal scroll0.820Scene progress0.000Reduced motionfalseWebGLavailableDevice tier: midReduced motion: OFFSet CTA source placeholder12345678910",
+        "canvasCount": 1,
+        "auditActiveScene": 8,
+        "sceneProgress": 0.00006582411795815381
+      },
+      {
+        "p": 0.88,
+        "text": "P5.07 Architecture PoC09 / FAQGlobal scroll0.880Scene progress0.001Reduced motionfalseWebGLavailableDevice tier: midReduced motion: OFFSet CTA source placeholder12345678910",
+        "canvasCount": 1,
+        "auditActiveScene": 9,
+        "sceneProgress": 0.0005924170616104328
+      },
+      {
+        "p": 0.94,
+        "text": "P5.07 Architecture PoC09 / FAQGlobal scroll0.940Scene progress0.999Reduced motionfalseWebGLavailableDevice tier: midReduced motion: OFFSet CTA source placeholder12345678910",
+        "canvasCount": 1,
+        "auditActiveScene": 9,
+        "sceneProgress": 0.9994734070563459
+      },
+      {
+        "p": 1,
+        "text": "P5.07 Architecture PoC10 / Final CTAGlobal scroll1.000Scene progress1.000Reduced motionfalseWebGLavailableDevice tier: midReduced motion: OFFSet CTA source placeholder12345678910",
+        "canvasCount": 1,
+        "auditActiveScene": 10,
+        "sceneProgress": 1
+      },
+      {
+        "p": 1,
+        "text": "P5.07 Architecture PoC10 / Final CTAGlobal scroll1.000Scene progress1.000Reduced motionfalseWebGLavailableDevice tier: midReduced motion: OFFSet CTA source placeholder12345678910",
+        "canvasCount": 1,
+        "auditActiveScene": 10,
+        "sceneProgress": 1
+      },
+      {
+        "p": 0.94,
+        "text": "P5.07 Architecture PoC09 / FAQGlobal scroll0.940Scene progress0.999Reduced motionfalseWebGLavailableDevice tier: midReduced motion: OFFSet CTA source placeholder12345678910",
+        "canvasCount": 1,
+        "auditActiveScene": 9,
+        "sceneProgress": 0.9994734070563459
+      },
+      {
+        "p": 0.88,
+        "text": "P5.07 Architecture PoC09 / FAQGlobal scroll0.880Scene progress0.001Reduced motionfalseWebGLavailableDevice tier: midReduced motion: OFFSet CTA source placeholder12345678910",
+        "canvasCount": 1,
+        "auditActiveScene": 9,
+        "sceneProgress": 0.0005924170616104328
+      },
+      {
+        "p": 0.82,
+        "text": "P5.07 Architecture PoC08 / Trust & CredibilityGlobal scroll0.820Scene progress0.000Reduced motionfalseWebGLavailableDevice tier: midReduced motion: OFFSet CTA source placeholder12345678910",
+        "canvasCount": 1,
+        "auditActiveScene": 8,
+        "sceneProgress": 0.00006582411795815381
+      },
+      {
+        "p": 0.72,
+        "text": "P5.07 Architecture PoC06 / Workshops PreviewGlobal scroll0.720Scene progress1.000Reduced motionfalseWebGLavailableDevice tier: midReduced motion: OFFSet CTA source placeholder12345678910",
+        "canvasCount": 1,
+        "auditActiveScene": 6,
+        "sceneProgress": 0.9998420221169038
+      },
+      {
+        "p": 0.62,
+        "text": "P5.07 Architecture PoC05 / Training PillarsGlobal scroll0.620Scene progress1.000Reduced motionfalseWebGLavailableDevice tier: midReduced motion: OFFSet CTA source placeholder12345678910",
+        "canvasCount": 1,
+        "auditActiveScene": 5,
+        "sceneProgress": 0.9997037914691947
+      },
+      {
+        "p": 0.5,
+        "text": "P5.07 Architecture PoC05 / Training PillarsGlobal scroll0.500Scene progress0.000Reduced motionfalseWebGLavailableDevice tier: midReduced motion: OFFSet CTA source placeholder12345678910",
+        "canvasCount": 1,
+        "auditActiveScene": 5,
+        "sceneProgress": 0
+      },
+      {
+        "p": 0.37,
+        "text": "P5.07 Architecture PoC03 / The GapGlobal scroll0.370Scene progress1.000Reduced motionfalseWebGLavailableDevice tier: midReduced motion: OFFSet CTA source placeholder12345678910",
+        "canvasCount": 1,
+        "auditActiveScene": 3,
+        "sceneProgress": 0.9997630331753554
+      },
+      {
+        "p": 0.22,
+        "text": "P5.07 Architecture PoC02 / Hero / Mithaq RevealGlobal scroll0.220Scene progress1.000Reduced motionfalseWebGLavailableDevice tier: midReduced motion: OFFSet CTA source placeholder12345678910",
+        "canvasCount": 1,
+        "auditActiveScene": 2,
+        "sceneProgress": 0.9998683517640863
+      },
+      {
+        "p": 0.1,
+        "text": "P5.07 Architecture PoC02 / Hero / Mithaq RevealGlobal scroll0.100Scene progress0.000Reduced motionfalseWebGLavailableDevice tier: midReduced motion: OFFSet CTA source placeholder12345678910",
+        "canvasCount": 1,
+        "auditActiveScene": 2,
+        "sceneProgress": 0.0001645602948920309
+      },
+      {
+        "p": 0,
+        "text": "P5.07 Architecture PoC01 / Gavel Seal OpeningGlobal scroll0.000Scene progress0.000Reduced motionfalseWebGLavailableDevice tier: midReduced motion: OFFSet CTA source placeholder12345678910",
+        "canvasCount": 1,
+        "auditActiveScene": 1,
+        "sceneProgress": 0
+      }
+    ],
+    "finalCanvasCount": 1
+  },
+  "landscape": {
+    "canvasCount": 1,
+    "width": 844,
+    "height": 390,
+    "panel": "P5.07 Architecture PoC01 / Gavel Seal OpeningGlobal scroll0.000Scene progress0.000Reduced motionfalseWebGLavailableDevice tier: midReduced motion: OFFSet CTA source placeholder12345678910"
+  },
+  "portrait": {
+    "canvasCount": 1,
+    "width": 390,
+    "height": 844,
+    "panel": "P5.07 Architecture PoC01 / Gavel Seal OpeningGlobal scroll0.000Scene progress0.000Reduced motionfalseWebGLavailableDevice tier: midReduced motion: OFFSet CTA source placeholder12345678910"
+  },
+  "directSceneAccess": true,
+  "forwardReverseSweepPass": true,
+  "webglFallbackPass": true
+}

@@ -1,0 +1,59 @@
+{
+  "triangles": 1040,
+  "meshes": 7,
+  "materials": 4,
+  "materialNames": [
+    "MITHAQ_Mat_Aged_Dark_Leather",
+    "MITHAQ_Mat_Dark_Wenge_Wood",
+    "MITHAQ_Mat_Desk_Edge_Dark_Wood",
+    "MITHAQ_Mat_Subtle_Groove_Shadow"
+  ],
+  "textures": 0,
+  "textureDimensions": [],
+  "asset": "Mithaq Legal Desk Environment",
+  "ticket": "P5.04",
+  "blenderVersion": "5.1.2",
+  "optimizationMethod": "Blender GLTF exporter Draco compression fallback; gltfpack unavailable in execution shell.",
+  "anchors": {
+    "MITHAQ_Anchor_Gavel_Strike": [
+      -1.15,
+      -0.3,
+      0.23
+    ],
+    "MITHAQ_Anchor_Seal_Center": [
+      0.28,
+      -0.24,
+      0.25
+    ],
+    "MITHAQ_Anchor_Camera_Hero": [
+      2.4,
+      -4.2,
+      2.25
+    ]
+  },
+  "conditions": [
+    "gltfpack unavailable in execution shell; Blender Draco compression used for desk.opt.glb.",
+    "Final material/art approval, KTX2 conversion, mobile LOD, R3F import validation, ripple shader validation, and real-device performance validation remain pending.",
+    "Gavel and Seal were imported for one preview render only and are not baked into desk.raw.glb or desk.opt.glb."
+  ],
+  "rawGlbBytes": 43276,
+  "optimizedGlbBytes": 14228,
+  "sourceBlendBytes": 131419,
+  "rawReimportPass": true,
+  "optimizedReimportPass": true,
+  "rawImportTest": {
+    "status": "PASS",
+    "path": "D:\\Clinets\\MITHAQ\\MITHAQ\\mithaq-project-docs\\mithaq-desk-environment-production\\exports\\desk.raw.glb",
+    "meshCount": 7,
+    "materialCount": 4,
+    "triangleCount": 1040
+  },
+  "optimizedImportTest": {
+    "status": "PASS",
+    "path": "D:\\Clinets\\MITHAQ\\MITHAQ\\mithaq-project-docs\\mithaq-desk-environment-production\\exports\\desk.opt.glb",
+    "meshCount": 7,
+    "materialCount": 4,
+    "triangleCount": 1040
+  },
+  "validationMethod": "Blender 5.1.2 background import_scene.gltf import test."
+}

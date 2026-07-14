@@ -1,0 +1,95 @@
+{
+  "totalTriangles": 760,
+  "trianglesPerDocument": {
+    "MITHAQ_Doc_01_Legal_Notes": 92,
+    "MITHAQ_Doc_02_Academic_Reference": 100,
+    "MITHAQ_Doc_03_Unfinished_Form": 92,
+    "MITHAQ_Doc_04_Case_Excerpt": 98,
+    "MITHAQ_Doc_05_Research_Sheet": 94,
+    "MITHAQ_Doc_06_Memo_Draft": 90,
+    "MITHAQ_Doc_07_Pleading_Fragment": 98,
+    "MITHAQ_Doc_08_Practice_Checklist": 96
+  },
+  "meshes": 8,
+  "materials": 4,
+  "materialNames": [
+    "MITHAQ_Mat_Abstract_Ink_Marks",
+    "MITHAQ_Mat_Parchment_Base",
+    "MITHAQ_Mat_Parchment_Dim",
+    "MITHAQ_Mat_Subtle_Gold_Line"
+  ],
+  "textures": 0,
+  "textureDimensions": [],
+  "asset": "Mithaq Floating Documents",
+  "ticket": "P5.05",
+  "blenderVersion": "5.1.2",
+  "optimizationMethod": "Blender GLTF exporter Draco compression fallback; gltfpack unavailable in execution shell.",
+  "documentCount": 8,
+  "conditions": [
+    "gltfpack unavailable in execution shell; Blender Draco compression used for documents.opt.glb.",
+    "Final material/art approval, mobile LOD, R3F import validation, and Scene 03 orbit/convergence validation remain pending.",
+    "No readable fake legal text, court/government marks, personal data, official stamps, or fake legal claims are included."
+  ],
+  "rawGlbBytes": 50164,
+  "optimizedGlbBytes": 28652,
+  "sourceBlendBytes": 119550,
+  "rawReimportPass": true,
+  "optimizedReimportPass": true,
+  "rawImportTest": {
+    "status": "PASS",
+    "path": "D:\\Clinets\\MITHAQ\\MITHAQ\\mithaq-project-docs\\mithaq-floating-documents-production\\exports\\documents.raw.glb",
+    "meshCount": 8,
+    "materialCount": 4,
+    "totalTriangles": 760,
+    "trianglesPerDocument": {
+      "MITHAQ_Doc_01_Legal_Notes": 92,
+      "MITHAQ_Doc_02_Academic_Reference": 100,
+      "MITHAQ_Doc_03_Unfinished_Form": 92,
+      "MITHAQ_Doc_04_Case_Excerpt": 98,
+      "MITHAQ_Doc_05_Research_Sheet": 94,
+      "MITHAQ_Doc_06_Memo_Draft": 90,
+      "MITHAQ_Doc_07_Pleading_Fragment": 98,
+      "MITHAQ_Doc_08_Practice_Checklist": 96
+    },
+    "documentCount": 8,
+    "foundDocuments": [
+      "MITHAQ_Doc_01_Legal_Notes",
+      "MITHAQ_Doc_02_Academic_Reference",
+      "MITHAQ_Doc_03_Unfinished_Form",
+      "MITHAQ_Doc_04_Case_Excerpt",
+      "MITHAQ_Doc_05_Research_Sheet",
+      "MITHAQ_Doc_06_Memo_Draft",
+      "MITHAQ_Doc_07_Pleading_Fragment",
+      "MITHAQ_Doc_08_Practice_Checklist"
+    ]
+  },
+  "optimizedImportTest": {
+    "status": "PASS",
+    "path": "D:\\Clinets\\MITHAQ\\MITHAQ\\mithaq-project-docs\\mithaq-floating-documents-production\\exports\\documents.opt.glb",
+    "meshCount": 8,
+    "materialCount": 4,
+    "totalTriangles": 760,
+    "trianglesPerDocument": {
+      "MITHAQ_Doc_01_Legal_Notes": 92,
+      "MITHAQ_Doc_02_Academic_Reference": 100,
+      "MITHAQ_Doc_03_Unfinished_Form": 92,
+      "MITHAQ_Doc_04_Case_Excerpt": 98,
+      "MITHAQ_Doc_05_Research_Sheet": 94,
+      "MITHAQ_Doc_06_Memo_Draft": 90,
+      "MITHAQ_Doc_07_Pleading_Fragment": 98,
+      "MITHAQ_Doc_08_Practice_Checklist": 96
+    },
+    "documentCount": 8,
+    "foundDocuments": [
+      "MITHAQ_Doc_01_Legal_Notes",
+      "MITHAQ_Doc_02_Academic_Reference",
+      "MITHAQ_Doc_03_Unfinished_Form",
+      "MITHAQ_Doc_04_Case_Excerpt",
+      "MITHAQ_Doc_05_Research_Sheet",
+      "MITHAQ_Doc_06_Memo_Draft",
+      "MITHAQ_Doc_07_Pleading_Fragment",
+      "MITHAQ_Doc_08_Practice_Checklist"
+    ]
+  },
+  "validationMethod": "Blender 5.1.2 background import_scene.gltf import test."
+}

@@ -1,0 +1,3 @@
+raw_glb_bytes=416000
+optimized_glb_bytes=89480
+optimized_glb_mb=0.0853

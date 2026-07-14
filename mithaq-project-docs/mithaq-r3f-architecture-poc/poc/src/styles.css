@@ -1,0 +1,292 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #08070f;
+  color: #f2e8d0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #08070f;
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at 20% 8%, rgba(196, 145, 58, 0.13), transparent 30rem),
+    linear-gradient(180deg, #08070f 0%, #0e0c1a 48%, #08070f 100%);
+}
+
+button {
+  font: inherit;
+}
+
+.app-shell {
+  position: relative;
+  min-height: 100vh;
+}
+
+.canvas-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.webgl-fallback {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-content: center;
+  gap: 0.75rem;
+  padding: 2rem;
+  text-align: center;
+  background: #08070f;
+}
+
+.webgl-fallback h1 {
+  margin: 0;
+  font-size: clamp(2rem, 8vw, 4.5rem);
+  line-height: 1;
+}
+
+.debug-panel {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 5;
+  width: min(22rem, calc(100vw - 2rem));
+  padding: 1rem;
+  border: 1px solid rgba(196, 145, 58, 0.34);
+  border-radius: 8px;
+  background: rgba(8, 7, 15, 0.82);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.34);
+}
+
+.debug-panel h2 {
+  margin: 0.25rem 0 1rem;
+  color: #f2e8d0;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.debug-panel dl {
+  display: grid;
+  gap: 0.4rem;
+  margin: 0 0 0.9rem;
+}
+
+.debug-panel dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid rgba(242, 232, 208, 0.1);
+  padding-bottom: 0.35rem;
+}
+
+.debug-panel dt,
+.debug-panel dd {
+  margin: 0;
+  font-size: 0.78rem;
+}
+
+.debug-panel dt {
+  color: rgba(242, 232, 208, 0.68);
+}
+
+.debug-panel dd {
+  color: #e8c97a;
+  font-variant-numeric: tabular-nums;
+}
+
+.eyebrow {
+  margin: 0;
+  color: #c4913a;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.device-badge {
+  display: inline-flex;
+  margin-bottom: 0.7rem;
+  padding: 0.35rem 0.55rem;
+  border: 1px solid rgba(196, 145, 58, 0.4);
+  border-radius: 999px;
+  color: #f2e8d0;
+  font-size: 0.72rem;
+}
+
+.debug-button,
+.scene-jump-list button {
+  border: 1px solid rgba(196, 145, 58, 0.45);
+  border-radius: 6px;
+  background: rgba(196, 145, 58, 0.12);
+  color: #f2e8d0;
+  cursor: pointer;
+}
+
+.debug-button {
+  display: block;
+  width: 100%;
+  margin-top: 0.45rem;
+  padding: 0.52rem 0.6rem;
+}
+
+.debug-button:focus-visible,
+.scene-jump-list button:focus-visible {
+  outline: 2px solid #e8c97a;
+  outline-offset: 2px;
+}
+
+.scene-jump-list {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 0.25rem;
+  margin-top: 0.65rem;
+}
+
+.scene-jump-list button {
+  min-height: 1.65rem;
+}
+
+.scene-markers {
+  position: fixed;
+  right: 1rem;
+  top: 1rem;
+  z-index: 5;
+  display: grid;
+  gap: 0.35rem;
+  width: 8.5rem;
+}
+
+.scene-marker {
+  display: grid;
+  grid-template-columns: 1.6rem 1fr;
+  align-items: center;
+  gap: 0.4rem;
+  color: rgba(242, 232, 208, 0.55);
+  font-size: 0.68rem;
+}
+
+.scene-marker b {
+  display: block;
+  height: 2px;
+  transform-origin: left;
+  background: #c4913a;
+}
+
+.scene-marker.is-active {
+  color: #f2e8d0;
+}
+
+.dom-intro {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  align-content: end;
+  min-height: 100vh;
+  max-width: 52rem;
+  padding: 0 2rem 7rem clamp(2rem, 8vw, 7rem);
+  pointer-events: none;
+}
+
+.dom-intro h1 {
+  max-width: 48rem;
+  margin: 0.7rem 0 1rem;
+  font-size: clamp(2.4rem, 6vw, 5.4rem);
+  line-height: 0.98;
+}
+
+.dom-intro p:last-child {
+  max-width: 34rem;
+  margin: 0;
+  color: rgba(242, 232, 208, 0.76);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.scroll-sections {
+  position: relative;
+  z-index: 1;
+}
+
+.scroll-section {
+  display: grid;
+  align-content: center;
+  min-height: 120vh;
+  max-width: 40rem;
+  padding: 5rem 2rem 5rem clamp(2rem, 8vw, 7rem);
+}
+
+.scroll-section h2 {
+  margin: 0.55rem 0 0.75rem;
+  font-size: clamp(2rem, 5vw, 4.4rem);
+  line-height: 1;
+}
+
+.scroll-section p:last-child {
+  margin: 0;
+  color: rgba(242, 232, 208, 0.7);
+  line-height: 1.7;
+}
+
+.scene-html-label {
+  min-width: 15rem;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid rgba(196, 145, 58, 0.28);
+  border-radius: 8px;
+  background: rgba(8, 7, 15, 0.72);
+  color: #f2e8d0;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.scene-html-label strong,
+.scene-html-label span {
+  display: block;
+}
+
+.scene-html-label strong {
+  color: #e8c97a;
+  font-size: 0.9rem;
+}
+
+.scene-html-label span,
+.canvas-status {
+  color: rgba(242, 232, 208, 0.72);
+  font-size: 0.72rem;
+}
+
+.canvas-status {
+  min-width: 12rem;
+  padding: 0.35rem 0.45rem;
+  border-radius: 999px;
+  background: rgba(8, 7, 15, 0.52);
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .debug-panel {
+    right: 0.75rem;
+    left: 0.75rem;
+    width: auto;
+  }
+
+  .scene-markers {
+    display: none;
+  }
+
+  .dom-intro,
+  .scroll-section {
+    padding-right: 1.25rem;
+    padding-left: 1.25rem;
+  }
+}

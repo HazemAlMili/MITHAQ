@@ -1,0 +1,48 @@
+{
+  "asset": "Mithaq Workshop Dossier 3D Cards",
+  "ticket": "P5.09",
+  "blenderVersion": "5.1.2",
+  "optimizationMethod": "Blender GLTF exporter Draco compression fallback; gltfpack unavailable in execution shell.",
+  "atlasBytes": 3020,
+  "atlasNote": "Copied from P4.06 dark leather subtle WebP; external shared atlas reference, not embedded in GLB.",
+  "desktop": {
+    "triangles": 1480,
+    "vertices": 784,
+    "meshes": 3,
+    "materials": 4,
+    "materialNames": [
+      "MITHAQ_Mat_Dossier_Dark_Leather",
+      "MITHAQ_Mat_Dossier_Muted_Brass",
+      "MITHAQ_Mat_Dossier_Parchment_Stack",
+      "MITHAQ_Mat_Dossier_Shadow_Groove"
+    ],
+    "textures": 0,
+    "rawGlbBytes": 65480,
+    "optimizedGlbBytes": 17544,
+    "optimizedReimportPass": true,
+    "drawCallsExpected": 3
+  },
+  "mobile": {
+    "triangles": 420,
+    "vertices": 224,
+    "meshes": 3,
+    "materials": 4,
+    "materialNames": [
+      "MITHAQ_Mat_Dossier_Dark_Leather",
+      "MITHAQ_Mat_Dossier_Muted_Brass",
+      "MITHAQ_Mat_Dossier_Parchment_Stack",
+      "MITHAQ_Mat_Dossier_Shadow_Groove"
+    ],
+    "textures": 0,
+    "rawGlbBytes": 21692,
+    "optimizedGlbBytes": 8304,
+    "optimizedReimportPass": true,
+    "drawCallsExpected": 3
+  },
+  "contentSafety": "No real or invented workshop content included.",
+  "conditions": [
+    "gltfpack unavailable in execution shell; Blender Draco export used for optimized GLBs.",
+    "Tiny geometric seal treatment is a restrained substitute pending final approved seal artwork/wordmark.",
+    "Real-device validation remains pending because P5.08 mobile runtime failed hard floor."
+  ]
+}

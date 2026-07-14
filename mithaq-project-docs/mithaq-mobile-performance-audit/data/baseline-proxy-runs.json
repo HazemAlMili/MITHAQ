@@ -1,0 +1,155 @@
+[
+  {
+    "runId": "baseline-proxy-scene01-01",
+    "timestamp": "2026-07-14T14:47:11.168Z",
+    "buildType": "production",
+    "cacheState": "cold-local",
+    "deviceProfile": "Desktop Chromium mobile emulation Pixel 4a profile",
+    "os": "Windows host / Android UA emulation",
+    "browser": "149.0.7827.55",
+    "viewport": {
+      "width": 390,
+      "height": 844,
+      "dpr": 2
+    },
+    "deviceTier": "P5.07 browser-detected",
+    "reducedMotion": false,
+    "postProcessing": false,
+    "durationMs": 5734,
+    "consoleErrors": 0,
+    "shaderFailures": 0,
+    "drawCalls": null,
+    "triangles": null,
+    "geometries": null,
+    "textures": null,
+    "programs": null,
+    "averageFps": 59.38461187949968,
+    "onePercentLowFps": 59.52380952380888,
+    "minimumFps": -97.0873786372644,
+    "frameTimeP50Ms": 16.699999999999818,
+    "frameTimeP95Ms": 16.700000000000728,
+    "samples": 254,
+    "heapUsedBytes": 10000000,
+    "canvasCount": 1,
+    "panelText": "P5.07 Architecture PoC01 / Gavel Seal OpeningGlobal scroll0.000Scene progress0.004Reduced motionfalseWebGLavailableDevice tier: lowReduced motion: OFFSet CTA source placeholder12345678910",
+    "webgl": {
+      "version": "WebGL2",
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+    },
+    "resources": [
+      {
+        "name": "http://127.0.0.1:5310/assets/index-DJH8mo-Q.js",
+        "transferSize": 993474,
+        "encodedBodySize": 993174
+      },
+      {
+        "name": "http://127.0.0.1:5310/assets/index-CWmhcID4.css",
+        "transferSize": 4211,
+        "encodedBodySize": 3911
+      }
+    ],
+    "stableSceneTimeMs": 5729
+  },
+  {
+    "runId": "baseline-proxy-scene01-02",
+    "timestamp": "2026-07-14T14:47:16.895Z",
+    "buildType": "production",
+    "cacheState": "warm-local",
+    "deviceProfile": "Desktop Chromium mobile emulation Pixel 4a profile",
+    "os": "Windows host / Android UA emulation",
+    "browser": "149.0.7827.55",
+    "viewport": {
+      "width": 390,
+      "height": 844,
+      "dpr": 2
+    },
+    "deviceTier": "P5.07 browser-detected",
+    "reducedMotion": false,
+    "postProcessing": false,
+    "durationMs": 5727,
+    "consoleErrors": 0,
+    "shaderFailures": 0,
+    "drawCalls": null,
+    "triangles": null,
+    "geometries": null,
+    "textures": null,
+    "programs": null,
+    "averageFps": 60.414326285501325,
+    "onePercentLowFps": 59.52380952380888,
+    "minimumFps": 59.52380952380888,
+    "frameTimeP50Ms": 16.699999999999818,
+    "frameTimeP95Ms": 16.700000000000728,
+    "samples": 253,
+    "heapUsedBytes": 10000000,
+    "canvasCount": 1,
+    "panelText": "P5.07 Architecture PoC01 / Gavel Seal OpeningGlobal scroll0.000Scene progress0.004Reduced motionfalseWebGLavailableDevice tier: lowReduced motion: OFFSet CTA source placeholder12345678910",
+    "webgl": {
+      "version": "WebGL2",
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+    },
+    "resources": [
+      {
+        "name": "http://127.0.0.1:5310/assets/index-DJH8mo-Q.js",
+        "transferSize": 993474,
+        "encodedBodySize": 993174
+      },
+      {
+        "name": "http://127.0.0.1:5310/assets/index-CWmhcID4.css",
+        "transferSize": 4211,
+        "encodedBodySize": 3911
+      }
+    ],
+    "stableSceneTimeMs": 5723
+  },
+  {
+    "runId": "baseline-proxy-scene01-03",
+    "timestamp": "2026-07-14T14:47:22.594Z",
+    "buildType": "production",
+    "cacheState": "warm-local",
+    "deviceProfile": "Desktop Chromium mobile emulation Pixel 4a profile",
+    "os": "Windows host / Android UA emulation",
+    "browser": "149.0.7827.55",
+    "viewport": {
+      "width": 390,
+      "height": 844,
+      "dpr": 2
+    },
+    "deviceTier": "P5.07 browser-detected",
+    "reducedMotion": false,
+    "postProcessing": false,
+    "durationMs": 5699,
+    "consoleErrors": 0,
+    "shaderFailures": 0,
+    "drawCalls": null,
+    "triangles": null,
+    "geometries": null,
+    "textures": null,
+    "programs": null,
+    "averageFps": 61.64711382550966,
+    "onePercentLowFps": 59.52380952380888,
+    "minimumFps": 59.52380952380888,
+    "frameTimeP50Ms": 16.699999999999818,
+    "frameTimeP95Ms": 16.700000000000728,
+    "samples": 253,
+    "heapUsedBytes": 10000000,
+    "canvasCount": 1,
+    "panelText": "P5.07 Architecture PoC01 / Gavel Seal OpeningGlobal scroll0.000Scene progress0.004Reduced motionfalseWebGLavailableDevice tier: lowReduced motion: OFFSet CTA source placeholder12345678910",
+    "webgl": {
+      "version": "WebGL2",
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+    },
+    "resources": [
+      {
+        "name": "http://127.0.0.1:5310/assets/index-DJH8mo-Q.js",
+        "transferSize": 993474,
+        "encodedBodySize": 993174
+      },
+      {
+        "name": "http://127.0.0.1:5310/assets/index-CWmhcID4.css",
+        "transferSize": 4211,
+        "encodedBodySize": 3911
+      }
+    ],
+    "stableSceneTimeMs": 5695
+  }
+]

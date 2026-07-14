@@ -1,0 +1,6 @@
+Variant,Triangles,Vertices,Meshes,Materials,GLB Size,Texture Payload,Draw Calls
+Source Blend,1480,784,3,4,139233,3020,3
+Desktop Raw,1480,784,3,4,65480,3020,3
+Desktop Optimized,1480,784,3,4,17544,3020,3
+Mobile Raw,420,224,3,4,21692,3020,3
+Mobile Optimized,420,224,3,4,8304,3020,3
